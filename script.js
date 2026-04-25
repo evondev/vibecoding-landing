@@ -1,3 +1,9 @@
+// ─── ZALO CTA ───
+const ZALO_URL = 'https://zalo.me/0937253577';
+function openZalo() {
+  window.open(ZALO_URL, '_blank', 'noopener,noreferrer');
+}
+
 // ─── COUNTDOWN TIMER ───
 function startCountdown() {
   const stored = localStorage.getItem('vc_deadline');
