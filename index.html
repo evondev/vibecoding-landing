@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding — Học Lập Trình Bằng AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <div class="nav-logo">⚡ VibeCoding</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Trang chủ</a></li>
+      <li><a href="#solution">Giải pháp</a></li>
+      <li><a href="#curriculum">Chương trình</a></li>
+      <li><a href="#pricing">Học phí</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="btn-nav" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Đăng ký ngay</button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- LEFT: text content -->
+    <div class="hero-content">
+      <div class="hero-badge">🔥 Xu hướng 2026 · Kỹ năng AI mới nhất</div>
+      <h1>
+        Học Lập Trình<br/>
+        <span class="highlight">Không Cần Biết Code</span>
+      </h1>
+      <p class="hero-sub">
+        Chỉ cần ý tưởng — AI làm phần còn lại. Vibe Coding là cách lập trình mới: bạn <em>mô tả</em> điều bạn muốn, AI <em>viết code</em> cho bạn. Trong 4 tuần, bạn sẽ tự tay xây dựng sản phẩm thực tế.
+      </p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'}); return false;">
+          🚀 Đăng Ký Ngay
+        </a>
+        <a href="#curriculum" class="btn-secondary" onclick="document.getElementById('curriculum').scrollIntoView({behavior:'smooth'}); return false;">
+          ▶ Xem chương trình
+        </a>
+      </div>
+      <div class="hero-avatars">
+        <div class="avatars-stack">
+          <div class="avatar">L</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#ec4899,#f97316)">M</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#06b6d4,#10b981)">T</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">H</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4)">A</div>
+        </div>
+        <div class="avatar-text">
+          <strong>500+ học viên</strong> đã đăng ký
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: hero image -->
+    <div class="hero-image-wrap">
+      <img src="./images/hero.png" alt="Vibe Coding" class="hero-img" />
+    </div>
+  </section>
+
+  <!-- ─── WELCOME / FEATURES ─── -->
+  <section class="welcome-section">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-label">Tại Sao Chọn Chúng Tôi</div>
+      <h2 class="section-title">Chào Mừng Đến Với <span style="background:linear-gradient(135deg,var(--purple-light),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Vibe Coding</span></h2>
+      <div class="divider" style="margin:12px auto 0;"></div>
+    </div>
+    <div class="cards-grid" style="max-width:1100px;margin:0 auto;">
+      <div class="card card-big">
+        <div class="card-icon">💰</div>
+        <h3><span class="card-highlight">Hoàn Tiền & Cam Kết</span></h3>
+        <p>Chúng tôi hoàn tiền 100% trong vòng 7 ngày nếu bạn không hài lòng — không hỏi lý do. Chúng tôi tự tin vào chất lượng nên cam kết điều này ngay từ đầu.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3><span class="card-highlight">Nội Dung Bảo Mật</span></h3>
+        <p>Tài liệu độc quyền, được bảo vệ bản quyền. Cập nhật liên tục theo xu hướng AI mới nhất.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3><span class="card-highlight">Hỗ Trợ 24/7</span></h3>
+        <p>Cộng đồng Discord riêng. Mentor và học viên sẽ giúp bạn bất kỳ lúc nào bạn bị stuck.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3><span class="card-highlight">Script & Template</span></h3>
+        <p>Bộ prompt AI và template sẵn dùng, đã được tối ưu qua hàng nghìn lần thực chiến thực tế.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">♾️</div>
+        <h3><span class="card-highlight">Truy Cập Trọn Đời</span></h3>
+        <p>Một lần đăng ký, học mãi mãi. Tất cả bản cập nhật trong tương lai đều miễn phí cho bạn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PAIN POINTS ─── -->
+  <section class="pain-section">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-label">Vấn Đề Bạn Đang Gặp</div>
+      <h2 class="section-title">Bạn Có Đang Rơi Vào<br/>Tình Huống Này Không?</h2>
+      <div class="divider" style="margin:12px auto 0;"></div>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Bạn có <strong>ý tưởng sản phẩm</strong> nhưng không biết code nên không thể tự xây dựng</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Bạn từng học lập trình nhưng <strong>bỏ cuộc giữa chừng</strong> vì quá khó và tốn thời gian</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Phải <strong>trả tiền thuê developer</strong> tốn kém, mất chủ động, chờ đợi mãi không xong</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Mọi người xung quanh dùng AI xây sản phẩm, còn bạn thì <strong>không biết bắt đầu từ đâu</strong></p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Bạn sợ rằng <strong>mình đã quá muộn</strong> để bắt kịp xu hướng công nghệ AI</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-x">✕</div>
+        <p>Mỗi khi cần thêm tính năng, lại phải <strong>phụ thuộc vào người khác</strong> và mất kiểm soát</p>
+      </div>
+    </div>
+    <div class="pain-cta-box" style="margin-top:40px;">
+      <p>Nếu bạn gật đầu với ít nhất 2 điều trên — <strong>khóa học này được tạo ra chính xác cho bạn.</strong></p>
+    </div>
+  </section>
+
+  <!-- ─── SOLUTION ─── -->
+  <section id="solution">
+    <div class="solution-layout">
+      <div class="solution-visual">
+        <div class="glow-blob glow-blob-1"></div>
+        <div class="glow-blob glow-blob-2"></div>
+        <div class="code-mockup">
+          <div class="code-dots">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+          </div>
+          <div class="code-comment">// Bạn nói với AI...</div>
+          <br/>
+          <div><span class="code-keyword">user:</span> <span class="code-string">"Tạo cho tôi một form đăng ký</span></div>
+          <div style="padding-left:32px"><span class="code-string">với validation email và</span></div>
+          <div style="padding-left:32px"><span class="code-string">nút submit màu tím"</span></div>
+          <br/>
+          <div class="code-comment">// AI viết code cho bạn...</div>
+          <br/>
+          <div><span class="code-keyword">function</span> <span class="code-func">SignupForm</span>() {</div>
+          <div style="padding-left:16px;color:#f1f0ff">  <span class="code-keyword">return</span> &lt;<span class="code-func">form</span>&gt;...</div>
+          <div>}</div>
+          <div class="code-output">
+            ✓ Component created successfully<br/>
+            ✓ Email validation added<br/>
+            ✓ Purple button styled
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Giải Pháp</div>
+        <h2 class="section-title">Giới Thiệu:<br/><span style="background:linear-gradient(135deg,var(--purple-light),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Vibe Coding</span></h2>
+        <div class="divider"></div>
+        <p style="font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:32px;">
+          Vibe Coding không phải là lập trình truyền thống. Đây là kỹ năng mới của thập kỷ này — bạn <strong style="color:var(--text-primary)">nói</strong>, AI <strong style="color:var(--text-primary)">hiểu</strong>, sản phẩm <strong style="color:var(--text-primary)">ra đời</strong>.
+        </p>
+        <div class="solution-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4>Dùng ChatGPT, Claude, Cursor</h4>
+              <p>Viết code theo lệnh của bạn, không cần nhớ cú pháp</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4>Xây dựng web app & tool tự động</h4>
+              <p>Landing page, dashboard, form — tất cả chỉ bằng mô tả</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4>Biến ý tưởng thành sản phẩm</h4>
+              <p>Từ vài giờ thay vì vài tháng như cách cũ</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <h4>Debug bằng tiếng Việt</h4>
+              <p>Mô tả vấn đề, AI tìm và sửa lỗi cho bạn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BENEFITS ─── -->
+  <section style="background:linear-gradient(180deg,transparent,rgba(124,58,237,0.05),transparent);">
+    <div class="centered" style="margin-bottom:56px;">
+      <div class="section-label">Lợi Ích</div>
+      <h2 class="section-title">Sau Khóa Học, Bạn Sẽ Có Được</h2>
+      <div class="divider"></div>
+      <p class="section-sub">6 lợi ích cụ thể, đo lường được — không phải lời hứa suông</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon">🔧</span>
+        <h3>Tự Build Sản Phẩm</h3>
+        <p>Không cần thuê developer. Bạn hoàn toàn làm chủ quá trình xây dựng sản phẩm của mình.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">💰</span>
+        <h3>Tiết Kiệm 50–200tr/năm</h3>
+        <p>Chi phí outsource developer trung bình từ 50–200 triệu/năm. Bạn không cần trả nữa.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">⚡</span>
+        <h3>Ra Mắt MVP Trong 1 Tuần</h3>
+        <p>Thay vì 3–6 tháng như cách cũ, Vibe Coding giúp bạn test ý tưởng cực kỳ nhanh.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🏆</span>
+        <h3>Kỹ Năng Top 1% Thị Trường</h3>
+        <p>90% người xung quanh vẫn chưa có kỹ năng này. Bạn sẽ đi trước thị trường.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🎯</span>
+        <h3>Tự Tin Với Developer</h3>
+        <p>Hiểu đủ kỹ thuật để giao tiếp, đánh giá công việc, không bị qua mặt nữa.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">📦</span>
+        <h3>3 Sản Phẩm Thực Tế</h3>
+        <p>Portfolio với 3 sản phẩm đã chạy thực tế khi kết thúc khóa học — không chỉ là lý thuyết.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CURRICULUM ─── -->
+  <section id="curriculum" class="curriculum-section">
+    <div class="centered" style="margin-bottom:56px;">
+      <div class="section-label">Chương Trình</div>
+      <h2 class="section-title">4 Tuần — 4 Cột Mốc Rõ Ràng</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Mỗi tuần là một cột mốc cụ thể. Kết thúc mỗi tuần bạn có một thứ có thể show cho người khác xem.</p>
+    </div>
+    <div class="weeks-layout">
+      <div class="week-card">
+        <div class="week-num">Tuần 01</div>
+        <h3>Tư Duy Vibe Coding & AI Tools</h3>
+        <ul class="week-items">
+          <li>Mindset lập trình bằng AI</li>
+          <li>ChatGPT, Claude, Cursor</li>
+          <li>Viết prompt hiệu quả</li>
+          <li>Dự án đầu tiên: Todo App</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Tuần 02</div>
+        <h3>Landing Page & Web App Đầu Tiên</h3>
+        <ul class="week-items">
+          <li>HTML/CSS không cần học tay</li>
+          <li>Build landing page thật</li>
+          <li>Responsive design</li>
+          <li>Deploy lên Vercel</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Tuần 03</div>
+        <h3>Database, Form & Thanh Toán</h3>
+        <ul class="week-items">
+          <li>Kết nối Supabase/Firebase</li>
+          <li>Form thu thập lead</li>
+          <li>Tích hợp thanh toán</li>
+          <li>Sản phẩm hoàn chỉnh</li>
+        </ul>
+      </div>
+      <div class="week-card">
+        <div class="week-num">Tuần 04</div>
+        <h3>Deploy & Demo Day</h3>
+        <ul class="week-items">
+          <li>Deploy lên internet</li>
+          <li>Domain & hosting</li>
+          <li>SEO cơ bản</li>
+          <li>Demo Day — pitch sản phẩm</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials-section">
+    <div class="centered" style="margin-bottom:56px;">
+      <div class="section-label">Học Viên Nói Gì</div>
+      <h2 class="section-title">Kết Quả Thực Tế<br/>Từ Học Viên</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Mình không biết gì về code, sau 3 tuần đã tự build được tool quản lý khách hàng cho shop. Tiết kiệm được 15 triệu thuê người làm rồi.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div class="testi-info">
+            <strong>Nguyễn Thị Lan</strong>
+            <span>Chủ shop online, TP.HCM</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Mình là marketer, sau khóa học tự làm landing page A/B testing mà không cần chờ IT nữa. Tốc độ campaign tăng gấp 3. Game changer thật sự.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#f97316)">M</div>
+          <div class="testi-info">
+            <strong>Trần Minh Khoa</strong>
+            <span>Digital Marketer, Hà Nội</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Học xong tuần 2 mình đã tự build được trang web bán hàng cho mình. Bạn bè hỏi thuê ai làm mình nói tự làm thôi, không ai tin cả.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#06b6d4,#10b981)">H</div>
+          <div class="testi-info">
+            <strong>Lê Hoàng Anh</strong>
+            <span>Freelance Designer, Đà Nẵng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ─── -->
+  <section id="pricing">
+    <div class="centered" style="margin-bottom:56px;">
+      <div class="section-label">Học Phí</div>
+      <h2 class="section-title">Đầu Tư Một Lần,<br/>Dùng Mãi Mãi</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pricing-wrapper">
+      <div class="pricing-includes">
+        <h3>Khóa Học Bao Gồm:</h3>
+        <ul class="include-list">
+          <li><div class="check">✓</div><div><strong>20+ video bài học</strong> chất lượng cao, thực chiến</div></li>
+          <li><div class="check">✓</div><div><strong>Bộ prompt AI</strong> đã tối ưu sẵn dùng ngay</div></li>
+          <li><div class="check">✓</div><div><strong>File template & starter kit</strong> cho mọi dự án</div></li>
+          <li><div class="check">✓</div><div><strong>Community Discord</strong> hỗ trợ 24/7</div></li>
+          <li><div class="check">✓</div><div><strong>Truy cập trọn đời</strong> — học lại bất cứ lúc nào</div></li>
+          <li><div class="check">✓</div><div>Tất cả <strong>bản cập nhật</strong> trong tương lai miễn phí</div></li>
+          <li><div class="check">✓</div><div><strong>Certificate</strong> hoàn thành khóa học</div></li>
+        </ul>
+        <div style="margin-top:28px;padding:16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:10px;">
+          <p style="font-size:13px;color:#10b981;font-weight:600;">🛡️ Bảo đảm hoàn tiền 100% trong 7 ngày nếu không hài lòng — không hỏi lý do.</p>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="price-badge">🔥 Ưu đãi có hạn</div>
+        <div class="price-old">Giá gốc: 3.990.000đ</div>
+        <div class="price-new">1.990.000đ</div>
+        <div class="price-period">Một lần · Trọn đời</div>
+        <div class="countdown">
+          <div class="count-box">
+            <span class="count-num" id="hours">23</span>
+            <span class="count-label">Giờ</span>
+          </div>
+          <span class="count-sep">:</span>
+          <div class="count-box">
+            <span class="count-num" id="minutes">47</span>
+            <span class="count-label">Phút</span>
+          </div>
+          <span class="count-sep">:</span>
+          <div class="count-box">
+            <span class="count-num" id="seconds">59</span>
+            <span class="count-label">Giây</span>
+          </div>
+        </div>
+        <a href="#" class="btn-cta-big">🚀 Đăng Ký Ngay</a>
+        <div class="guarantee">
+          <span>🔒</span>
+          <span style="color:var(--text-muted)">Thanh toán an toàn · Hoàn tiền 7 ngày</span>
+        </div>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+          <p style="font-size:12px;color:var(--text-muted);">Hơn <strong style="color:var(--text-primary)">500 học viên</strong> đã đăng ký. Còn <strong style="color:#ef4444;">17 suất</strong> cuối của đợt này.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq" style="background:var(--bg-card);border-top:1px solid var(--border);">
+    <div class="centered" style="margin-bottom:48px;">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Tôi chưa biết gì về code, có học được không?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">Được. Đây là điểm xuất phát lý tưởng — bạn không có thói quen cũ cần bỏ. Toàn bộ khóa học được thiết kế cho người bắt đầu từ zero. Hàng trăm học viên không biết gì về lập trình đã hoàn thành thành công.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Cần máy tính mạnh không?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">Không cần. Chỉ cần máy tính có trình duyệt (Chrome/Edge) và kết nối internet là đủ. Mọi công cụ đều chạy trên web, không cần cài đặt phức tạp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Học trong bao lâu mỗi ngày?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">1–2 giờ/ngày là đủ. Bạn có thể học hoàn toàn theo tiến độ của mình — không có deadline cứng. Tất cả video đều có thể xem lại bất cứ lúc nào.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Sau khóa học tôi làm được gì cụ thể?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">Bạn sẽ có 3 sản phẩm thực tế trong portfolio: (1) Landing page cá nhân, (2) Web app với database, (3) Tool tự động. Tất cả đều được deploy lên internet và có thể show cho khách hàng/nhà tuyển dụng ngay.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Nếu học xong không dùng được thì sao?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">Hoàn tiền 100% trong 7 ngày kể từ ngày mua — không hỏi lý do. Gửi email là xong, tiền về trong 3–5 ngày làm việc. Chúng tôi tự tin vào chất lượng nên không e ngại điều này.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vibe Coding có còn relevant sau vài năm không?
+          <span class="arrow">⌃</span>
+        </div>
+        <div class="faq-a">Có. Vibe Coding không phải học một công cụ cụ thể — đây là tư duy làm việc cùng AI. Khi AI ngày càng mạnh hơn, kỹ năng này ngày càng có giá trị hơn. Bạn sẽ học cách thích nghi với bất kỳ công cụ AI mới nào.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="final-cta">
+    <div style="position:relative;z-index:2;">
+      <div class="section-label" style="margin-bottom:24px;">Sẵn Sàng Chưa?</div>
+      <h2>Bạn Đang Cách Sản Phẩm<br/><span style="background:linear-gradient(135deg,var(--purple-light),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Đầu Tiên Đúng 4 Tuần</span></h2>
+      <p>Đừng để thêm 1 năm nữa trôi qua trong khi người khác đang dùng AI xây dựng sản phẩm của họ.</p>
+      <a href="#pricing" class="btn-primary" style="font-size:17px;padding:18px 48px;display:inline-flex;" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'}); return false;">
+        🚀 Bắt Đầu Ngay
+      </a>
+      <div><div class="slots-badge">⚠️ Chỉ còn 17 suất cuối của đợt này</div></div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div>
+      <div class="footer-logo">⚡ VibeCoding</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">© 2026 VibeCoding. All rights reserved.</p>
+    </div>
+    <div class="footer-copy">
+      <p style="font-size:12px;color:var(--text-muted);max-width:400px;line-height:1.6;">Website và quá trình thanh toán được vận hành bởi VibeCoding Media, chịu trách nhiệm về sản phẩm, hỗ trợ và hoàn tiền.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Điều khoản</a>
+      <a href="#">Chính sách</a>
+      <a href="#">Liên hệ</a>
+      <a href="#">Discord</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
