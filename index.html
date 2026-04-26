@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
-      <button class="btn-nav" onclick="openZalo()">Đăng ký ngay</button>
+      <button class="btn-nav" onclick="openLeadModal()">Đăng ký ngay</button>
     </div>
   </nav>
 
@@ -41,7 +42,7 @@
         Không cần code. Không cần thuê dev. Chỉ cần ý tưởng — AI giúp bạn xây <em>landing page chuyển đổi cao</em>, <em>chatbot tư vấn 24/7</em>, nhận tiền tự động và quản lý đơn hàng. Tất cả trong 7 ngày.
       </p>
       <div class="hero-actions">
-        <a href="#" class="btn-primary" onclick="openZalo(); return false;">
+        <a href="#" class="btn-primary" onclick="openLeadModal(); return false;">
           🚀 Xây Hệ Thống Ngay
         </a>
         <a href="#curriculum" class="btn-secondary" onclick="document.getElementById('curriculum').scrollIntoView({behavior:'smooth'}); return false;">
@@ -351,7 +352,7 @@
             <span class="count-label">Giây</span>
           </div>
         </div>
-        <a href="#" class="btn-cta-big" onclick="openZalo(); return false;">🚀 Đăng Ký Ngay</a>
+        <a href="#" class="btn-cta-big" onclick="openLeadModal(); return false;">🚀 Đăng Ký Ngay</a>
         <div class="guarantee">
           <span>🔒</span>
           <span style="color:var(--text-muted)">Thanh toán an toàn · Hoàn tiền 7 ngày</span>
@@ -422,7 +423,7 @@
       <div class="section-label" style="margin-bottom:24px;">Sẵn Sàng Chưa?</div>
       <h2>Hệ Thống Bán Hàng Đầu Tiên Của Bạn<br/><span style="background:linear-gradient(135deg,var(--purple-light),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Chỉ Cách Đây 7 Ngày</span></h2>
       <p>Đừng để thêm 1 ngày nữa trôi qua khi đối thủ đang dùng AI bán tự động — còn bạn vẫn tư vấn thủ công từng tin nhắn.</p>
-      <a href="#" class="btn-primary" style="font-size:17px;padding:18px 48px;display:inline-flex;" onclick="openZalo(); return false;">
+      <a href="#" class="btn-primary" style="font-size:17px;padding:18px 48px;display:inline-flex;" onclick="openLeadModal(); return false;">
         🚀 Xây Hệ Thống Ngay
       </a>
       <div><div class="slots-badge">⚠️ Chỉ còn 17 suất của đợt khai giảng này</div></div>
@@ -446,6 +447,42 @@
     </div>
   </footer>
 
-  <script src="./script.js?v=2"></script>
+  <!-- ─── LEAD MODAL ─── -->
+  <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="lead-modal__backdrop" onclick="closeLeadModal()"></div>
+    <div class="lead-modal__card">
+      <button class="lead-modal__close" onclick="closeLeadModal()" aria-label="Đóng">✕</button>
+      <div class="lead-modal__icon">🚀</div>
+      <h2 class="lead-modal__title" id="modal-title">Nhận Tư Vấn Miễn Phí</h2>
+      <p class="lead-modal__sub">Để lại thông tin — đội ngũ VibeCoding sẽ tư vấn lộ trình phù hợp nhất cho bạn qua Zalo.</p>
+      <form id="lead-form" onsubmit="submitLead(event)" novalidate>
+        <div class="lead-field">
+          <label for="lead-name">Họ và tên</label>
+          <input id="lead-name" type="text" placeholder="Nguyễn Văn A" autocomplete="name" required />
+          <span class="lead-error" id="err-name"></span>
+        </div>
+        <div class="lead-field">
+          <label for="lead-phone">Số điện thoại</label>
+          <input id="lead-phone" type="tel" placeholder="0912 345 678" autocomplete="tel" required />
+          <span class="lead-error" id="err-phone"></span>
+        </div>
+        <div class="lead-field">
+          <label for="lead-email">Email</label>
+          <input id="lead-email" type="email" placeholder="example@gmail.com" autocomplete="email" required />
+          <span class="lead-error" id="err-email"></span>
+        </div>
+        <button type="submit" class="lead-modal__submit">
+          <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="48" height="48" rx="12" fill="white" fill-opacity="0.15"/>
+            <path d="M24 6C14.06 6 6 13.39 6 22.5c0 5.15 2.67 9.73 6.84 12.71L11.5 42l6.97-3.64C20.41 38.77 22.17 39 24 39c9.94 0 18-7.39 18-16.5S33.94 6 24 6z" fill="white"/>
+          </svg>
+          Nhận tư vấn qua Zalo
+        </button>
+      </form>
+      <p class="lead-modal__privacy">🔒 Thông tin của bạn được bảo mật tuyệt đối</p>
+    </div>
+  </div>
+
+  <script src="./script.js?v=7"></script>
 </body>
 </html>

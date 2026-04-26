@@ -947,6 +947,185 @@ section {
   margin-top: 24px;
 }
 
+/* ─── LEAD MODAL ─── */
+.lead-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+.lead-modal.open { display: flex; }
+
+.lead-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 16, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.lead-modal__card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: 24px;
+  padding: 32px 32px 28px;
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  box-shadow: 0 0 60px rgba(124, 58, 237, 0.18), 0 24px 80px rgba(0,0,0,0.6);
+  animation: modal-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.lead-modal__close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+}
+.lead-modal__close:hover { background: rgba(255,255,255,0.12); color: var(--text-primary); }
+
+.lead-modal__icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.lead-modal__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--purple-light), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead-modal__sub {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.lead-field {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lead-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+.lead-field input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 15px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  width: 100%;
+}
+.lead-field input::placeholder { color: rgba(139,139,168,0.55); }
+.lead-field input:focus {
+  border-color: var(--purple-light);
+  background: rgba(124, 58, 237, 0.06);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
+}
+.lead-field input.error { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }
+
+.lead-error {
+  font-size: 12px;
+  color: #f87171;
+  min-height: 14px;
+  font-weight: 500;
+}
+
+.lead-modal__submit {
+  width: 100%;
+  padding: 14px 20px;
+  margin-top: 4px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+}
+.lead-modal__submit:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.45);
+}
+.lead-modal__submit:active { transform: translateY(0); opacity: 1; }
+
+.lead-modal__privacy {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* Mobile: bottom-sheet */
+@media (max-width: 600px) {
+  .lead-modal { align-items: flex-end; }
+  .lead-modal__card {
+    border-radius: 24px 24px 0 0;
+    padding: 24px 20px 32px;
+    max-width: 100%;
+    max-height: 92dvh;
+    animation: sheet-in 0.3s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+  }
+  @keyframes sheet-in {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lead-modal__icon { font-size: 28px; margin-bottom: 6px; }
+  .lead-modal__title { font-size: 20px; }
+  .lead-modal__sub { font-size: 13px; margin-bottom: 16px; }
+  .lead-field { margin-bottom: 10px; }
+  .lead-field input { padding: 10px 13px; font-size: 16px; }
+  .lead-modal__submit { padding: 13px 20px; }
+}
+
 /* ─── FOOTER ─── */
 footer {
   background: var(--bg-card);
