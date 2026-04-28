@@ -896,6 +896,29 @@ section {
 }
 .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
 
+/* ─── SURVEY ─── */
+.survey-section {
+  padding: 100px 48px;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+}
+.survey-embed-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 0 40px var(--glow-purple);
+}
+.survey-iframe {
+  display: block;
+  width: 100%;
+  min-height: 680px;
+  border: none;
+  background: transparent;
+}
+
 /* ─── FINAL CTA ─── */
 .final-cta {
   text-align: center;
