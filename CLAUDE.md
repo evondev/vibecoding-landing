@@ -2,35 +2,43 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+@AGENTS.md
 
-A static Vietnamese-language landing page for **VibeCoding** — an AI-assisted coding course. No build tools, bundlers, or package managers. Open `index.html` directly in a browser or serve with any static file server:
+## Commands
 
 ```bash
-python3 -m http.server 8080
-# or
-npx serve .
+npm run dev      # start dev server at http://localhost:3000
+npm run build    # production build
+npm run lint     # run ESLint
 ```
 
-## File Structure
+No test runner is configured.
 
-- [index.html](index.html) — Single-page HTML with all sections: nav, hero, features, pain points, solution, benefits, curriculum, testimonials, pricing, FAQ, footer
-- [style.css](style.css) — All styles; uses CSS custom properties defined in `:root` for the color palette
-- [script.js](script.js) — Three behaviors: countdown timer (persisted via `localStorage`), FAQ accordion toggle, scroll-reveal via `IntersectionObserver`, and active nav link on scroll
-- [images/hero.png](images/hero.png) — Hero section image
+## Stack
 
-## Design System
+- **Next.js 16.2.4** (App Router) with **React 19**
+- **TypeScript 5**
+- **Tailwind CSS v4** — imported via `@import "tailwindcss"` in `globals.css`, configured through `@theme inline` blocks (no `tailwind.config.*` file)
+- **Geist** font family loaded via `next/font/google`
 
-Colors are defined as CSS variables in `:root` ([style.css:3-17](style.css#L3-L17)). The palette: `--purple` (#7c3aed), `--purple-light` (#a855f7), `--pink` (#ec4899), `--cyan` (#06b6d4), `--green` (#10b981), `--bg-primary` (#080810), `--bg-card` (#0f0f1a).
+## Architecture
 
-Fonts: **Inter** (body) and **Space Grotesk** (headings/logo/prices) — both loaded from Google Fonts.
+This is a Next.js App Router project. All routes live under `app/`:
 
-Responsive breakpoints: `max-width: 1200px` (hero stacks) and `max-width: 900px` (all grids collapse to single column, nav links hidden).
+- `app/layout.tsx` — root layout: sets up Geist fonts as CSS variables (`--font-geist-sans`, `--font-geist-mono`) and applies them via `@theme inline` in `globals.css`
+- `app/globals.css` — global styles; Tailwind v4 is configured here with CSS custom properties, not a JS config file
+- `app/page.tsx` — home route (`/`)
 
-## Key Behaviors
+## Key differences in this Next.js version
 
-**Countdown timer** ([script.js:2-30](script.js#L2-L30)): Deadline stored in `localStorage` as `vc_deadline`. First visit sets it to ~24h from now; subsequent visits continue from the same deadline. Clears to `00:00:00` when expired.
+Per `AGENTS.md`: this version has breaking changes. **Read `node_modules/next/dist/docs/` before writing any code.** The docs are organized as:
 
-**FAQ accordion** ([script.js:33-38](script.js#L33-L38)): Only one item open at a time. Toggled via `toggleFaq()` called inline from HTML. Open state is `.faq-item.open`; the answer height transition uses `max-height` in CSS.
+- `01-app/` — App Router guides and API reference
+- `02-pages/` — Pages Router
+- `03-architecture/` — internals
 
-**Scroll-reveal** ([script.js:41-55](script.js#L41-L55)): Elements matching `.card, .benefit-card, .week-card, .testi-card, .pain-item, .step` start at `opacity:0; translateY(24px)` and animate in when intersecting. New components that should animate on scroll must be added to this selector list.
+Notable hint from the docs index: for slow client-side navigations, `Suspense` alone is not enough — you must also export `unstable_instant` from the route. Read `docs/01-app/02-guides/instant-navigation.mdx` before making changes to navigation behavior.
+
+## Tailwind v4 usage
+
+Tailwind v4 uses a CSS-first config approach — no `tailwind.config.js`. Customize the theme with `@theme` blocks in CSS files. The `@tailwindcss/postcss` plugin handles processing.
