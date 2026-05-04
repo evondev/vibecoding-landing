@@ -13,6 +13,7 @@ import SurveySection from "./survey-section";
 import FinalCtaSection from "./final-cta-section";
 import FooterSection from "./footer-section";
 import LeadModal from "./lead-modal";
+import ChatWidget from "./chat-widget";
 
 export default function LandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,6 +34,7 @@ export default function LandingPage() {
       <FinalCtaSection onOpenModal={openModal} />
       <FooterSection />
       <LeadModal isOpen={isModalOpen} onClose={closeModal} />
+      <ChatWidget onOpenModal={openModal} />
     </>
   );
 }

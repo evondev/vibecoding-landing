@@ -162,7 +162,7 @@ export default function SurveySection() {
                       onChange={() => toggleStorage(option)}
                       className="sr-only"
                     />
-                    <span className={`w-4 h-4 flex-shrink-0 rounded border-2 flex items-center justify-center transition-colors ${checked ? "bg-orange-500 border-orange-500" : "border-gray-300 bg-white"}`}>
+                    <span className={`w-4 h-4 shrink-0 rounded border-2 flex items-center justify-center transition-colors ${checked ? "bg-orange-500 border-orange-500" : "border-gray-300 bg-white"}`}>
                       {checked && (
                         <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 10 8" fill="none">
                           <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -200,7 +200,7 @@ export default function SurveySection() {
                       onChange={() => toggleProblem(option)}
                       className="sr-only"
                     />
-                    <span className={`w-4 h-4 flex-shrink-0 rounded border-2 flex items-center justify-center transition-colors ${checked ? "bg-orange-500 border-orange-500" : "border-gray-300 bg-white"}`}>
+                    <span className={`w-4 h-4 shrink-0 rounded border-2 flex items-center justify-center transition-colors ${checked ? "bg-orange-500 border-orange-500" : "border-gray-300 bg-white"}`}>
                       {checked && (
                         <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 10 8" fill="none">
                           <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -246,7 +246,7 @@ export default function SurveySection() {
                       name="priceRange"
                       checked={checked}
                       onChange={() => setPriceRange(option)}
-                      className="accent-orange-500 w-4 h-4 flex-shrink-0"
+                      className="accent-orange-500 w-4 h-4 shrink-0"
                     />
                     {option}
                   </label>

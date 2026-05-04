@@ -1,0 +1,106 @@
+{
+  "version": "1.0",
+  "product": "AI Brain Tool",
+  "objections": [
+    {
+      "id": 1,
+      "category": "gia",
+      "objection": "99.000đ vẫn còn đắt với tôi",
+      "root_cause": "Chưa thấy rõ giá trị cụ thể so với tiền bỏ ra",
+      "reframe": "99.000đ = 1 bữa ăn tối. Nhưng AI Brain Tool sẽ tiết kiệm cho bạn 47 phút mỗi ngày — tương đương 23 giờ mỗi tháng. Nếu thời gian của bạn đáng giá dù chỉ 10.000đ/giờ, thì trong 1 tháng bạn đã lấy lại gấp 23 lần số tiền bỏ ra.",
+      "response_script": "Tôi hiểu. Nhưng hãy tính thử: nếu mỗi ngày bạn tiết kiệm được 45 phút tìm kiếm ghi chú — một tháng là 22 giờ. Thời gian đó bạn làm được gì? Và đây là Lifetime Deal — không bao giờ phải trả thêm. So với Notion (từ $8/tháng) hay Evernote (từ $10/tháng), tổng cộng 1 năm bạn đã tiết kiệm được 2-3 triệu đồng.",
+      "supporting_data": "So sánh: Notion Pro = 2.400.000đ/năm, Evernote Personal = 3.000.000đ/năm. AI Brain Tool = 99.000đ mãi mãi.",
+      "tags": ["giá", "đắt", "ROI", "so sánh"]
+    },
+    {
+      "id": 2,
+      "category": "gia",
+      "objection": "Tôi chờ giảm giá thêm / có deal tốt hơn",
+      "root_cause": "Muốn giá tốt hơn hoặc chưa cảm thấy urgency",
+      "reframe": "Giá hiện tại là 99.000đ dành cho 200 Founding Member đầu tiên. Đây là mức thấp nhất sản phẩm này từng và sẽ bán. Sau khi đủ 200 người, giá tăng lên ít nhất gấp đôi hoặc chuyển sang subscription.",
+      "response_script": "Tôi hiểu bạn muốn chắc chắn đây là deal tốt nhất. Thực ra đây đúng là deal tốt nhất — 99.000đ là giá Founding Member, chỉ áp dụng cho 200 người đầu tiên và đã có hơn 500 người đăng ký. Sau khi hết slot, giá sẽ tăng. Kèm theo đó là chính sách hoàn tiền 14 ngày — bạn có thể dùng thử và hoàn tiền nếu không hài lòng, hoàn toàn không rủi ro.",
+      "supporting_data": "Giá dự kiến sau founding period: 199.000đ hoặc 49.000đ/tháng subscription",
+      "tags": ["giảm giá", "chờ đợi", "urgency", "founding member"]
+    },
+    {
+      "id": 3,
+      "category": "tin-tuong",
+      "objection": "Tôi chưa tin đây là sản phẩm thật / sẽ tồn tại lâu dài",
+      "root_cause": "Lo ngại sản phẩm sẽ đóng cửa hoặc không được maintain",
+      "reframe": "Đây là lý do chúng tôi có chính sách hoàn tiền 14 ngày và cam kết export toàn bộ dữ liệu bất cứ lúc nào. Ngay cả trong trường hợp xấu nhất, dữ liệu của bạn vẫn là của bạn — bạn có thể export về dạng Markdown/JSON và mang đi.",
+      "response_script": "Lo ngại hoàn toàn hợp lý. Chúng tôi đã có 500+ người dùng thật, 2M+ ghi chú được lưu mỗi ngày. Quan trọng hơn: bạn không bao giờ bị lock-in — export toàn bộ dữ liệu bất cứ lúc nào dưới dạng Markdown, JSON hoặc PDF. Và bạn có 14 ngày dùng thử hoàn tiền 100% — không rủi ro gì cả.",
+      "supporting_data": "Export policy: user có thể export toàn bộ data bất kỳ lúc nào, không giới hạn",
+      "tags": ["tin tưởng", "startup risk", "longevity", "data portability"]
+    },
+    {
+      "id": 4,
+      "category": "can-thiet",
+      "objection": "Notion/Obsidian hiện tại của tôi cũng đang dùng tốt rồi",
+      "root_cause": "Chưa cảm nhận được pain point rõ ràng hoặc đã quen với workflow hiện tại",
+      "reframe": "Notion và Obsidian tốt để ghi chú — nhưng khi số lượng ghi chú vượt quá 200-300 cái, tìm kiếm và kết nối kiến thức trở nên rất khó. Câu hỏi là: bạn có thực sự tìm lại và dùng được những gì đã lưu không?",
+      "response_script": "Tuyệt vời! Bạn đã có thói quen tốt rồi. Câu hỏi thực sự là: trong số tất cả ghi chú bạn đã lưu trong 1 năm qua, bao nhiêu % bạn đã thực sự tìm lại và dùng? Nếu câu trả lời là dưới 30% — bạn đang lưu trữ mà không khai thác. AI Brain Tool giúp bạn biến kho kiến thức đó thành thứ thực sự có ích. Và nó import được từ Notion/Obsidian nên không cần bỏ gì cả.",
+      "supporting_data": "Research: trung bình người dùng Notion chỉ tìm lại khoảng 20-25% ghi chú đã tạo",
+      "tags": ["notion", "obsidian", "alternative", "switch cost"]
+    },
+    {
+      "id": 5,
+      "category": "can-thiet",
+      "objection": "Tôi không có nhiều ghi chú, không cần tool này",
+      "root_cause": "Chưa nhận ra nhu cầu hoặc chưa có thói quen ghi chú",
+      "reframe": "Nếu bạn không ghi nhiều — có thể vì việc ghi chú hiện tại quá phức tạp hoặc bạn không thấy giá trị trong việc lưu lại. AI Brain Tool giúp việc capture trở nên dễ đến mức bạn sẽ ghi chú nhiều hơn, và thấy được giá trị từ chính những ghi chú đó.",
+      "response_script": "Thực ra đó có thể chính là vấn đề — không phải bạn không có gì để ghi, mà là việc ghi chú hiện tại quá phức tạp nên bạn bỏ qua. AI Brain Tool thiết kế để capture siêu nhanh — 1 click từ Chrome, forward email, ghi âm trên điện thoại. Khi bắt đầu capture được nhiều hơn và thấy AI kết nối chúng lại, bạn sẽ ngạc nhiên về lượng insight bạn đang để mất mỗi ngày.",
+      "supporting_data": "Average user: 47 phút/ngày tiết kiệm ngay từ tuần đầu tiên",
+      "tags": ["không cần", "ít ghi chú", "habit", "beginner"]
+    },
+    {
+      "id": 6,
+      "category": "thoi-gian",
+      "objection": "Tôi không có thời gian để học tool mới",
+      "root_cause": "Lo ngại learning curve cao, phải đầu tư thời gian setup",
+      "reframe": "AI Brain Tool được thiết kế để không cần học. Không có cấu trúc thư mục để tạo, không có tag để gán, không có template để cài. Bạn chỉ cần capture — AI làm hết.",
+      "response_script": "Tôi hiểu — học tool mới thường mất nhiều thời gian và công sức. Nhưng AI Brain Tool khác ở điểm này: không có gì để setup. Không cần tạo workspace, không cần cài template, không cần tổ chức thư mục. Bạn tạo tài khoản → capture ghi chú đầu tiên → xong. AI tự làm hết phần còn lại. Hầu hết người dùng bắt đầu thấy giá trị ngay trong ngày đầu tiên.",
+      "supporting_data": "Median onboarding time: dưới 5 phút từ đăng ký đến ghi chú đầu tiên",
+      "tags": ["learning curve", "thời gian", "setup", "onboarding"]
+    },
+    {
+      "id": 7,
+      "category": "bao-mat",
+      "objection": "Tôi không muốn dữ liệu cá nhân lên cloud",
+      "root_cause": "Lo ngại về privacy và bảo mật dữ liệu",
+      "reframe": "Dữ liệu được mã hóa end-to-end — ngay cả team AI Brain Tool cũng không đọc được nội dung ghi chú của bạn. Chỉ có bạn mới có key giải mã.",
+      "response_script": "Privacy là ưu tiên hàng đầu của chúng tôi. Toàn bộ dữ liệu được mã hóa end-to-end trước khi rời thiết bị của bạn — giống như iMessage hay Signal. Server của chúng tôi chỉ thấy dữ liệu đã mã hóa, không ai có thể đọc ghi chú của bạn kể cả chúng tôi. Bạn cũng có thể export và xóa tài khoản bất cứ lúc nào.",
+      "supporting_data": "End-to-end encryption, zero-knowledge architecture, GDPR compliant",
+      "tags": ["privacy", "bảo mật", "cloud", "end-to-end encryption"]
+    },
+    {
+      "id": 8,
+      "category": "tin-tuong",
+      "objection": "AI đọc ghi chú của tôi để train model à?",
+      "root_cause": "Lo ngại dữ liệu bị dùng để huấn luyện AI",
+      "reframe": "Không. Dữ liệu của bạn chỉ được dùng để phục vụ chính bạn — AI phân loại và tìm kiếm trong kho kiến thức của bạn. Chúng tôi không dùng dữ liệu người dùng để train bất kỳ model chung nào.",
+      "response_script": "Hoàn toàn không. Dữ liệu của bạn không được dùng để train model AI chung. AI của AI Brain Tool chỉ hoạt động trên kho kiến thức cá nhân của bạn — giống như một trợ lý riêng, không chia sẻ thông tin với ai khác. Đây là cam kết rõ ràng trong Terms of Service của chúng tôi.",
+      "supporting_data": "Policy: no data used for model training, user data is private and isolated",
+      "tags": ["AI training", "data policy", "privacy", "terms of service"]
+    },
+    {
+      "id": 9,
+      "category": "can-thiet",
+      "objection": "Google Keep / Apple Notes là miễn phí, tại sao phải trả tiền?",
+      "root_cause": "Chưa thấy sự khác biệt so với giải pháp miễn phí",
+      "reframe": "Google Keep và Apple Notes tốt để lưu nhanh — nhưng khi bạn có hơn 100 ghi chú, tìm lại trở nên rất khó. Không có AI tổ chức, không có tìm kiếm ngữ nghĩa, không có Knowledge Graph. Chúng là notepad — AI Brain Tool là bộ não thứ hai.",
+      "response_script": "Tuyệt vời nếu Google Keep đang đáp ứng được nhu cầu của bạn! Sự khác biệt thực sự bộc lộ khi số ghi chú tăng lên. Thử hỏi Google Keep: 'Tháng trước tôi đọc gì về email marketing?' hoặc 'Kết nối giữa dự án A và dự án B là gì?' — nó không làm được. AI Brain Tool làm được những việc đó. Nếu bạn hiện có dưới 50 ghi chú, có thể Google Keep là đủ. Nhưng nếu bạn muốn thực sự khai thác kiến thức — thì cần công cụ khác.",
+      "supporting_data": "Google Keep: search by keyword only, no AI, no connections. AI Brain Tool: semantic search, auto-organize, knowledge graph",
+      "tags": ["google keep", "apple notes", "miễn phí", "so sánh", "value"]
+    },
+    {
+      "id": 10,
+      "category": "thoi-gian",
+      "objection": "Để tôi nghĩ thêm / để sau",
+      "root_cause": "Chưa có urgency hoặc đang do dự chưa ra quyết định",
+      "reframe": "Mỗi ngày không dùng AI Brain Tool là mỗi ngày bạn mất thêm 47 phút và tiếp tục để kiến thức thất thoát. Và giá Founding Member 99.000đ sẽ không còn khi đủ 200 người.",
+      "response_script": "Tôi tôn trọng quyết định của bạn. Nhưng để bạn có đủ thông tin: giá 99.000đ chỉ còn hiệu lực cho rất ít người nữa — sau đó tăng giá. Và bạn luôn có 14 ngày hoàn tiền nếu không thấy phù hợp. Rủi ro duy nhất của việc thử là 99.000đ trong 14 ngày — rủi ro của việc không thử là tiếp tục mất 47 phút mỗi ngày mãi mãi.",
+      "supporting_data": "Hoàn tiền 100% trong 14 ngày. Giá Founding Member còn giới hạn slot.",
+      "tags": ["procrastination", "urgency", "FOMO", "hoàn tiền"]
+    }
+  ]
+}

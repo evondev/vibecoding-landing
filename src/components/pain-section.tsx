@@ -104,7 +104,7 @@ export default function PainSection() {
           <div className="grid sm:grid-cols-2 gap-6">
             {pains.map((pain) => (
               <div key={pain.title} className="flex items-start gap-3">
-                <span className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0 text-lg">
+                <span className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center shrink-0 text-lg">
                   {pain.icon}
                 </span>
                 <div>

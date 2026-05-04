@@ -41,7 +41,7 @@ export default function FaqSection() {
             <details key={faq.q} className="group bg-white rounded-2xl border border-gray-100 overflow-hidden">
               <summary className="cursor-pointer flex items-center justify-between p-6 select-none list-none [&::-webkit-details-marker]:hidden">
                 <span className="font-medium text-gray-900 pr-6 text-sm leading-relaxed">{faq.q}</span>
-                <span className="text-orange-500 flex-shrink-0 text-xs transition-transform group-open:rotate-180 inline-block">
+                <span className="text-orange-500 shrink-0 text-xs transition-transform group-open:rotate-180 inline-block">
                   ▼
                 </span>
               </summary>

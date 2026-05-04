@@ -1,0 +1,95 @@
+{
+  "id": "ai-brain-tool",
+  "name": "AI Brain Tool",
+  "tagline": "Bộ nhớ thứ hai của bạn — được hỗ trợ bởi AI",
+  "description": "AI Brain Tool là công cụ quản lý kiến thức cá nhân dùng AI. Bạn chỉ cần capture — AI tự động phân loại, kết nối và giúp bạn tìm lại bất kỳ thông tin nào trong vòng 0.3 giây.",
+  "pricing": {
+    "original_price": 1990000,
+    "current_price": 99000,
+    "currency": "VND",
+    "model": "Lifetime Deal — một lần, dùng mãi mãi",
+    "guarantee": "Hoàn tiền 100% trong 14 ngày nếu không hài lòng, không hỏi lý do",
+    "note": "Giá Founding Member chỉ áp dụng cho 200 người đầu tiên"
+  },
+  "stats": {
+    "daily_active_users": "100+",
+    "notes_saved": "2M+",
+    "time_saved_per_day": "47 phút",
+    "search_speed": "0.3 giây",
+    "total_users": "500+"
+  },
+  "features": [
+    {
+      "id": "capture",
+      "title": "Capture mọi lúc mọi nơi",
+      "description": "Lưu bất kỳ định dạng nào — link, text, ảnh, file, ghi âm — qua extension Chrome, app mobile hoặc forward email.",
+      "sub_features": [
+        "Extension Chrome 1 click",
+        "App iOS & Android",
+        "Email-to-brain forwarding",
+        "Paste link, text, file, ảnh"
+      ]
+    },
+    {
+      "id": "ai-organize",
+      "title": "AI tự động phân loại & kết nối",
+      "description": "Không cần tạo thư mục, không cần gán tag thủ công. AI tự đọc nội dung, tóm tắt, phân loại và kết nối với kiến thức hiện có.",
+      "sub_features": [
+        "Tự động gán tag thông minh",
+        "Tóm tắt nội dung bằng AI",
+        "Kết nối kiến thức liên quan",
+        "Không cần làm gì thủ công"
+      ]
+    },
+    {
+      "id": "search",
+      "title": "Tìm lại trong 1 giây",
+      "description": "Gõ bất kỳ từ khóa, ý tưởng hay câu hỏi bằng ngôn ngữ tự nhiên — AI tìm và hiển thị đúng thứ bạn cần, kể cả khi bạn không nhớ đã lưu như thế nào.",
+      "sub_features": [
+        "Tìm kiếm ngôn ngữ tự nhiên",
+        "Tốc độ 0.3 giây",
+        "Tìm theo ngữ nghĩa, không chỉ từ khóa",
+        "Hiển thị độ khớp (%)  cho từng kết quả"
+      ]
+    },
+    {
+      "id": "knowledge-graph",
+      "title": "Knowledge Graph — bản đồ kiến thức",
+      "description": "Trực quan hóa toàn bộ kiến thức thành mạng lưới có kết nối — phát hiện những mối liên hệ ẩn giữa các ý tưởng.",
+      "sub_features": [
+        "Bản đồ kiến thức trực quan",
+        "Khám phá kết nối ẩn",
+        "Bùng nổ ý tưởng sáng tạo",
+        "Xuất graph dạng PDF"
+      ]
+    },
+    {
+      "id": "sync",
+      "title": "Đồng bộ & offline",
+      "description": "Dùng được offline, tự đồng bộ khi có mạng. Truy cập trên mọi thiết bị theo thời gian thực.",
+      "sub_features": [
+        "Hoạt động offline",
+        "Đồng bộ tất cả thiết bị theo thời gian thực",
+        "Export toàn bộ dữ liệu (Markdown, JSON, PDF)",
+        "Mã hóa end-to-end"
+      ]
+    }
+  ],
+  "import_support": ["Notion (JSON export)", "Obsidian (vault folder)", "Evernote", "Markdown files"],
+  "target_audience": [
+    "Knowledge workers",
+    "Freelancer & người làm remote",
+    "Startup founder",
+    "Học sinh / sinh viên học online",
+    "Content creator",
+    "Developer & designer"
+  ],
+  "problems_solved": [
+    "Ghi chú nằm rải rác khắp nơi (Notion, Google Docs, Obsidian, sticky note)",
+    "Học xong là quên — không lấy lại được kiến thức",
+    "Tìm kiếm thủ công tốn 30+ phút mỗi ngày",
+    "Ý tưởng hay xuất hiện rồi biến mất vì không kịp lưu",
+    "Trùng lặp, lộn xộn giữa nhiều phiên bản ghi chú",
+    "Kiến thức rời rạc, không kết nối được với nhau"
+  ]
+}

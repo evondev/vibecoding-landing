@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "product": "AI Brain Tool",
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Minh Trí",
+      "role": "Product Manager",
+      "company": "Startup SaaS B2B",
+      "avatar_placeholder": "MT",
+      "rating": 5,
+      "headline": "Tiết kiệm được cả tiếng mỗi ngày chỉ nhờ không phải tìm ghi chú",
+      "story": "Trước đây tôi có ghi chú ở Notion, Google Docs, Slack và cả Notes trên iPhone. Mỗi lần cần tìm lại một quyết định cũ hay một insight từ cuộc họp, tôi tốn 15-20 phút. Giờ chỉ cần gõ câu hỏi vào AI Brain Tool là ra ngay trong vài giây. Sau 1 tháng dùng, tôi ước tính tiết kiệm được khoảng 1 tiếng mỗi ngày.",
+      "use_case": "Quản lý quyết định sản phẩm, meeting notes, research",
+      "before": "Ghi chú rải rác 4-5 nơi, tìm mất 15-20 phút mỗi lần",
+      "after": "Tìm kiếm trong 0.3 giây, không bao giờ mất ghi chú nữa",
+      "tags": ["product-manager", "startup", "time-saving"]
+    },
+    {
+      "id": 2,
+      "name": "Lan Anh",
+      "role": "Content Creator",
+      "company": "Freelance",
+      "avatar_placeholder": "LA",
+      "rating": 5,
+      "headline": "Không bao giờ hết ý tưởng để viết nữa",
+      "story": "Tôi viết blog và làm YouTube. Trước đây tôi có hàng trăm ghi chú ý tưởng nhưng không bao giờ tìm được đúng lúc cần. Khi ngồi vào bàn để viết, não trống không. Từ khi dùng AI Brain Tool, tôi capture mọi ý tưởng nhỏ bất cứ khi nào — rồi khi cần viết, tôi hỏi AI 'có gì liên quan đến chủ đề X không' và nó hiện ra hàng chục ý tưởng liên kết. Chưa bao giờ bị writer's block như trước nữa.",
+      "use_case": "Content planning, research, idea management",
+      "before": "Hàng trăm ghi chú ý tưởng nhưng không tìm được khi cần, hay bị writer's block",
+      "after": "Luôn có material để viết, ý tưởng kết nối với nhau tự nhiên",
+      "tags": ["content-creator", "freelance", "writing", "ideas"]
+    },
+    {
+      "id": 3,
+      "name": "Hoàng Nam",
+      "role": "Developer",
+      "company": "Tech company",
+      "avatar_placeholder": "HN",
+      "rating": 5,
+      "headline": "Import 3 năm ghi chú Obsidian trong 10 phút, AI tổ chức lại hoàn hảo",
+      "story": "Tôi có vault Obsidian với hơn 800 file Markdown, dùng từ năm 2021. Cấu trúc thư mục lộn xộn khủng khiếp vì tôi thay đổi cách tổ chức quá nhiều lần. Import vào AI Brain Tool mất 10 phút, sau đó AI tự phân loại lại toàn bộ và tạo Knowledge Graph. Lần đầu tiên tôi thấy được 3 năm học lập trình của mình trông như thế nào — thực sự ấn tượng.",
+      "use_case": "Lưu trữ kiến thức kỹ thuật, docs, snippets, learning notes",
+      "before": "800+ file Markdown lộn xộn trong Obsidian, cấu trúc thư mục hỗn độn",
+      "after": "Toàn bộ được phân loại tự động, Knowledge Graph hiện ra mối liên hệ rõ ràng",
+      "tags": ["developer", "obsidian", "import", "knowledge-graph"]
+    },
+    {
+      "id": 4,
+      "name": "Thu Hằng",
+      "role": "Sinh viên MBA",
+      "company": "Đại học Kinh tế TP.HCM",
+      "avatar_placeholder": "TH",
+      "rating": 5,
+      "headline": "Ôn thi hiệu quả hơn hẳn, không còn học vẹt nữa",
+      "story": "Trước đây tôi note bằng tay hoặc gõ vào Google Docs rồi không bao giờ xem lại. Học xong là quên, đến thi lại học lại từ đầu. Từ khi dùng AI Brain Tool, tôi capture tất cả bài giảng, article, case study vào một chỗ. Khi ôn thi, tôi hỏi AI 'tóm tắt lại những gì tôi học về chiến lược cạnh tranh' — nó tổng hợp từ tất cả nguồn. Kỳ này điểm tốt hơn hẳn mà thời gian ôn ngắn hơn nhiều.",
+      "use_case": "Ghi chú bài giảng, research papers, case study, ôn thi",
+      "before": "Học xong là quên, ghi chú không bao giờ được xem lại, tốn thời gian ôn thi",
+      "after": "Kiến thức được kết nối, ôn thi nhanh hơn nhờ AI tổng hợp",
+      "tags": ["student", "studying", "exam", "knowledge-retention"]
+    },
+    {
+      "id": 5,
+      "name": "Quốc Bảo",
+      "role": "Startup Founder",
+      "company": "Series A",
+      "avatar_placeholder": "QB",
+      "rating": 5,
+      "headline": "99k mà tiết kiệm được cả triệu đồng công sức mỗi tháng — quá xứng đáng",
+      "story": "Với tôi thì bộ nhớ là một trong những tài nguyên quý giá nhất. Tôi đọc rất nhiều — sách, newsletter, blog, research — nhưng retention rate thấp kinh khủng. Dùng AI Brain Tool được 2 tháng, tôi có thể nói chuyện sâu hơn với team và investor vì nhớ được nhiều chi tiết hơn. Cái quan trọng hơn là tôi thấy được pattern mà trước đây mình không nhìn ra — những kết nối giữa market trends, competitor moves và user feedback.",
+      "use_case": "Strategic thinking, market research, meeting notes, reading notes",
+      "before": "Retention rate thấp, không kết nối được các thông tin rời rạc",
+      "after": "Thấy được pattern và kết nối giữa các insight, ra quyết định tốt hơn",
+      "tags": ["founder", "startup", "strategic-thinking", "reading"]
+    },
+    {
+      "id": 6,
+      "name": "Bích Ngọc",
+      "role": "Marketing Manager",
+      "company": "E-commerce",
+      "avatar_placeholder": "BN",
+      "rating": 5,
+      "headline": "Không còn phải hỏi lại đồng nghiệp 'hồi trước mình đã làm gì' nữa",
+      "story": "Công việc marketing của tôi có rất nhiều campaign, A/B test, và insight từ data. Trước đây tôi hay lặp lại sai lầm cũ hoặc không nhớ mình đã thử cái gì rồi. Giờ tôi capture tất cả campaign notes, kết quả test, insight vào AI Brain Tool. Lần sau chỉ cần hỏi 'campaign email marketing nào hiệu quả nhất Q2' là ra ngay đầy đủ. Team cũng ít phải họp hơn vì ai cũng tự tra được.",
+      "use_case": "Campaign tracking, A/B test results, competitor research, team knowledge base",
+      "before": "Lặp lại sai lầm cũ, không nhớ các test đã chạy, phải hỏi lại đồng nghiệp",
+      "after": "Institutional knowledge được lưu lại, team tự tra cứu được",
+      "tags": ["marketing", "campaign", "team-knowledge", "ab-testing"]
+    }
+  ],
+  "aggregate": {
+    "total_reviews": 500,
+    "average_rating": 4.9,
+    "would_recommend": "97%",
+    "reported_time_saved": "45-60 phút/ngày trung bình"
+  }
+}

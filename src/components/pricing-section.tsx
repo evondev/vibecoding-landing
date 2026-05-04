@@ -65,7 +65,7 @@ export default function PricingSection({ onOpenModal }: Props) {
               <ul className="space-y-3 mb-8">
                 {features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm text-gray-700">
-                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs flex-shrink-0 mt-0.5">
+                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs shrink-0 mt-0.5">
                       ✓
                     </span>
                     {feature}

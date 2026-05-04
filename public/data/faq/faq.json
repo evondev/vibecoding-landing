@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "product": "AI Brain Tool",
+  "faqs": [
+    {
+      "id": 1,
+      "category": "so-sanh",
+      "question": "AI Brain Tool khác gì so với Notion hay Obsidian?",
+      "answer": "Notion và Obsidian là công cụ viết và tổ chức — bạn phải tự tạo cấu trúc, tự gán tag, tự tìm kiếm. AI Brain Tool ngược lại: AI lo tất cả phần tổ chức, còn bạn chỉ cần capture và hỏi. Đặc biệt là tính năng tìm kiếm bằng ngôn ngữ tự nhiên — Notion và Obsidian không có điều này.",
+      "tags": ["notion", "obsidian", "so sánh", "khác biệt"]
+    },
+    {
+      "id": 2,
+      "category": "migration",
+      "question": "Tôi có thể import dữ liệu từ Notion / Obsidian không?",
+      "answer": "Có. AI Brain Tool hỗ trợ import trực tiếp từ Notion (export JSON), Obsidian (vault folder), Evernote và bất kỳ file Markdown nào. Dữ liệu cũ của bạn sẽ được AI phân loại và kết nối tự động sau khi import.",
+      "tags": ["import", "migration", "notion", "obsidian", "evernote", "markdown"]
+    },
+    {
+      "id": 3,
+      "category": "bao-mat",
+      "question": "Dữ liệu của tôi có an toàn không?",
+      "answer": "Có. Toàn bộ dữ liệu được mã hóa end-to-end — ngay cả chúng tôi cũng không đọc được ghi chú của bạn. Bạn có thể export toàn bộ và xóa tài khoản bất cứ lúc nào.",
+      "tags": ["bảo mật", "end-to-end", "privacy", "dữ liệu", "an toàn"]
+    },
+    {
+      "id": 4,
+      "category": "gia",
+      "question": "Lifetime Deal nghĩa là gì? Có bị tính thêm phí sau này không?",
+      "answer": "Thanh toán một lần duy nhất, dùng mãi mãi — không có phí tháng, không có phí năm, không bao giờ bị tính thêm. Tất cả tính năng mới ra mắt trong tương lai cũng miễn phí cho Founding Member.",
+      "tags": ["lifetime", "giá", "founding member", "phí", "one-time"]
+    },
+    {
+      "id": 5,
+      "category": "tinh-nang",
+      "question": "App có chạy được offline không?",
+      "answer": "Có. Bạn có thể xem và tạo ghi chú offline. Khi có kết nối mạng trở lại, dữ liệu tự đồng bộ và AI xử lý các ghi chú mới.",
+      "tags": ["offline", "đồng bộ", "sync", "mobile"]
+    },
+    {
+      "id": 6,
+      "category": "de-dung",
+      "question": "Tôi không phải dân kỹ thuật, có dùng được không?",
+      "answer": "Hoàn toàn được. Giao diện được thiết kế đơn giản nhất có thể — nếu bạn biết dùng Google hay nhắn tin Zalo, bạn sẽ dùng được AI Brain Tool trong vòng 5 phút. Không cần cài đặt gì phức tạp.",
+      "tags": ["non-tech", "dễ dùng", "beginner", "đơn giản"]
+    },
+    {
+      "id": 7,
+      "category": "gia",
+      "question": "Có chính sách hoàn tiền không?",
+      "answer": "Có. Chúng tôi áp dụng chính sách hoàn tiền 100% trong vòng 14 ngày kể từ ngày mua, không cần giải thích lý do. Chỉ cần liên hệ qua email hỗ trợ và chúng tôi sẽ hoàn tiền trong 3-5 ngày làm việc.",
+      "tags": ["hoàn tiền", "refund", "guarantee", "bảo đảm"]
+    },
+    {
+      "id": 8,
+      "category": "tinh-nang",
+      "question": "AI Brain Tool có extension Chrome không?",
+      "answer": "Có. Extension Chrome cho phép bạn lưu bất kỳ trang web nào chỉ với 1 click. AI sẽ tự động tóm tắt nội dung trang và phân loại vào kho kiến thức của bạn ngay lập tức.",
+      "tags": ["chrome", "extension", "browser", "capture"]
+    },
+    {
+      "id": 9,
+      "category": "tinh-nang",
+      "question": "Có thể dùng trên điện thoại không?",
+      "answer": "Có. AI Brain Tool có app native cho cả iOS và Android. Bạn có thể capture, tìm kiếm và xem toàn bộ kho kiến thức ngay trên điện thoại — kể cả khi không có mạng.",
+      "tags": ["mobile", "ios", "android", "điện thoại"]
+    },
+    {
+      "id": 10,
+      "category": "tinh-nang",
+      "question": "Knowledge Graph là gì?",
+      "answer": "Knowledge Graph là tính năng trực quan hóa toàn bộ kiến thức của bạn thành một mạng lưới có kết nối. Bạn sẽ thấy được mối liên hệ giữa các ý tưởng, chủ đề và ghi chú — giúp bạn tìm ra những insight mà bạn chưa bao giờ nhận ra khi xem từng ghi chú riêng lẻ.",
+      "tags": ["knowledge graph", "visualization", "mạng lưới", "kết nối"]
+    },
+    {
+      "id": 11,
+      "category": "so-sanh",
+      "question": "Khác gì so với ChatGPT hay Gemini?",
+      "answer": "ChatGPT và Gemini là AI tổng quát — bạn hỏi, nó trả lời dựa trên dữ liệu huấn luyện của nó. AI Brain Tool thì khác: AI của chúng tôi được kết nối trực tiếp với KHO KIẾN THỨC CỦA BẠN. Nghĩa là khi bạn hỏi, nó tìm kiếm và trả lời dựa trên chính những gì bạn đã đọc, ghi chép và học — không phải kiến thức chung chung.",
+      "tags": ["chatgpt", "gemini", "so sánh", "AI"]
+    },
+    {
+      "id": 12,
+      "category": "gia",
+      "question": "Bao giờ giá tăng lên?",
+      "answer": "Giá 99.000đ (Founding Member) chỉ áp dụng cho 200 người đầu tiên. Sau khi đủ 200 người, giá sẽ về mức 199.000đ hoặc chuyển sang mô hình subscription. Không có thời hạn cố định — giá có thể tăng bất cứ lúc nào.",
+      "tags": ["giá", "tăng giá", "founding member", "early access"]
+    }
+  ]
+}

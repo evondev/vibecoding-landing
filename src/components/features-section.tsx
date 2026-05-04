@@ -37,7 +37,7 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                 {["Extension Chrome 1 click", "App iOS & Android", "Email-to-brain forwarding", "Paste link, text, file, ảnh"].map(
                   (item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
-                      <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs flex-shrink-0">
+                      <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs shrink-0">
                         ✓
                       </span>
                       {item}
@@ -103,7 +103,7 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                     key={item.tag}
                     className="bg-white rounded-xl p-3 flex items-center gap-3 shadow-sm border border-gray-100"
                   >
-                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium flex-shrink-0 ${item.color}`}>
+                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium shrink-0 ${item.color}`}>
                       {item.tag}
                     </span>
                     <span className="text-xs text-gray-600 flex-1">{item.note}</span>
@@ -136,7 +136,7 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                   "Không cần làm gì thủ công",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
-                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs flex-shrink-0">
+                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs shrink-0">
                       ✓
                     </span>
                     {item}
@@ -272,7 +272,7 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                   "Xuất graph dạng PDF",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
-                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs flex-shrink-0">
+                    <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs shrink-0">
                       ✓
                     </span>
                     {item}
