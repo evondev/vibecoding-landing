@@ -40,12 +40,14 @@ type Tab = "products" | "customers" | "orders";
 const fmt = (n: number) => n.toLocaleString("vi-VN") + "đ";
 
 const STATUS_LABEL: Record<string, string> = {
+  unpaid: "Chưa thanh toán",
   pending: "Chờ thanh toán",
   paid: "Đã thanh toán",
   cancelled: "Đã hủy",
 };
 
 const STATUS_COLOR: Record<string, string> = {
+  unpaid: "bg-gray-100 text-gray-500",
   pending: "bg-yellow-100 text-yellow-700",
   paid: "bg-green-100 text-green-700",
   cancelled: "bg-red-100 text-red-600",
@@ -298,6 +300,8 @@ function OrdersTab() {
   const [editing, setEditing] = useState<Order | null>(null);
   const [form, setForm] = useState({ customer_id: "", product_id: "", amount: "", status: "pending", order_code: "" });
   const [error, setError] = useState("");
+  const [approving, setApproving] = useState<Order | null>(null);
+  const [approveLoading, setApproveLoading] = useState(false);
 
   const load = () => fetch("/api/admin/orders").then(r => r.json()).then(setOrders);
   useEffect(() => {
@@ -343,6 +347,25 @@ function OrdersTab() {
     await fetch(`/api/admin/orders/${id}`, { method: "DELETE" });
     load();
     fetch("/api/admin/products").then(r => r.json()).then(setProducts);
+  }
+
+  async function approve() {
+    if (!approving) return;
+    setApproveLoading(true);
+    await fetch(`/api/admin/orders/${approving.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customer_id: approving.customer_id,
+        product_id: approving.product_id,
+        amount: approving.amount,
+        status: "paid",
+        order_code: approving.order_code,
+      }),
+    });
+    setApproveLoading(false);
+    setApproving(null);
+    load();
   }
 
   const totalRevenue = orders.filter(o => o.status === "paid").reduce((sum, o) => sum + o.amount, 0);
@@ -405,6 +428,9 @@ function OrdersTab() {
                 <td className="px-4 py-3 text-gray-400">{o.ordered_at?.slice(0, 10)}</td>
                 <td className="px-4 py-3">
                   <div className="flex gap-2">
+                    {(o.status === "unpaid" || o.status === "pending") && (
+                      <button onClick={() => setApproving(o)} className="cursor-pointer text-green-600 hover:text-green-800 text-xs font-medium">Duyệt</button>
+                    )}
                     <button onClick={() => openEdit(o)} className="cursor-pointer text-blue-500 hover:text-blue-700 text-xs font-medium">Sửa</button>
                     <button onClick={() => del(o.id)} className="cursor-pointer text-red-400 hover:text-red-600 text-xs font-medium">Xóa</button>
                   </div>
@@ -414,6 +440,48 @@ function OrdersTab() {
           </tbody>
         </table>
       </div>
+
+      {approving && (
+        <Modal title="Xác nhận duyệt đơn hàng" onClose={() => setApproving(null)}>
+          <div className="space-y-4">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-sm text-yellow-800">
+              ⚠️ Bạn đang duyệt thủ công đơn hàng này. Hãy đảm bảo đã xác nhận khách hàng đã thanh toán trước khi tiếp tục.
+            </div>
+            <div className="space-y-1.5 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-500">Khách hàng</span>
+                <span className="font-medium text-gray-900">{approving.customer_name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Số điện thoại</span>
+                <span className="text-gray-700">{approving.customer_phone}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Sản phẩm</span>
+                <span className="text-gray-700">{approving.product_name}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Số tiền</span>
+                <span className="font-semibold text-orange-600">{fmt(approving.amount)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Mã đơn</span>
+                <span className="font-mono text-gray-700">{approving.order_code}</span>
+              </div>
+            </div>
+            <div className="flex gap-3 pt-2">
+              <button
+                onClick={approve}
+                disabled={approveLoading}
+                className="cursor-pointer flex-1 bg-green-500 hover:bg-green-600 disabled:opacity-50 text-white font-medium py-2 rounded-lg text-sm"
+              >
+                {approveLoading ? "Đang duyệt..." : "Xác nhận duyệt"}
+              </button>
+              <button onClick={() => setApproving(null)} className="cursor-pointer flex-1 border border-gray-200 text-gray-600 hover:bg-gray-50 font-medium py-2 rounded-lg text-sm">Hủy</button>
+            </div>
+          </div>
+        </Modal>
+      )}
 
       {modal && (
         <Modal title={modal === "add" ? "Thêm đơn hàng" : "Chỉnh sửa đơn hàng"} onClose={() => setModal(null)}>
@@ -435,6 +503,7 @@ function OrdersTab() {
             </Field>
             <Field label="Trạng thái">
               <select className={inputCls} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}>
+                <option value="unpaid">Chưa thanh toán</option>
                 <option value="pending">Chờ thanh toán</option>
                 <option value="paid">Đã thanh toán</option>
                 <option value="cancelled">Đã hủy</option>
@@ -470,10 +539,15 @@ export default function AdminPage() {
       {/* Header */}
       <div className="bg-white border-b border-gray-100 px-6 py-4 flex items-center gap-3">
         <span className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white text-sm">🧠</span>
-        <div>
+        <div className="flex-1">
           <h1 className="font-bold text-gray-900">AI Brain Tool — Admin</h1>
           <p className="text-xs text-gray-400">Quản lý sản phẩm, khách hàng và đơn hàng</p>
         </div>
+        <form action="/api/auth/signout" method="POST">
+          <button type="submit" className="cursor-pointer text-xs text-gray-400 hover:text-gray-600 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors">
+            Đăng xuất
+          </button>
+        </form>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-8">

@@ -1,26 +1,22 @@
-import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function GET(req: NextRequest) {
-  const orderId = req.nextUrl.searchParams.get("orderId");
-  if (!orderId) {
-    return NextResponse.json({ paid: false, error: "Missing orderId" }, { status: 400 });
+  const orderCode = req.nextUrl.searchParams.get("orderCode");
+  if (!orderCode) {
+    return NextResponse.json({ paid: false, error: "Missing orderCode" }, { status: 400 });
   }
 
+  const supabase = getSupabaseAdmin();
   const { data, error } = await supabase
-    .from("leads")
-    .select("payment_status")
-    .eq("order_id", orderId)
+    .from("orders")
+    .select("status")
+    .eq("order_code", orderCode)
     .single();
 
   if (error || !data) {
     return NextResponse.json({ paid: false });
   }
 
-  return NextResponse.json({ paid: data.payment_status === "paid" });
+  return NextResponse.json({ paid: data.status === "paid" });
 }

@@ -1,15 +1,22 @@
-import { getDb } from "@/lib/db";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  const db = getDb();
-  const rows = db.prepare(`
-    SELECT o.*, c.name as customer_name, c.phone as customer_phone, p.name as product_name
-    FROM orders o
-    JOIN customers c ON o.customer_id = c.id
-    JOIN products p ON o.product_id = p.id
-    ORDER BY o.id DESC
-  `).all();
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase
+    .from("orders")
+    .select("*, customers(name, phone), products(name)")
+    .order("id", { ascending: false });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  const rows = (data ?? []).map((o: Record<string, unknown> & { customers: { name: string; phone: string } | null; products: { name: string } | null }) => ({
+    ...o,
+    customer_name: o.customers?.name ?? "",
+    customer_phone: o.customers?.phone ?? "",
+    product_name: o.products?.name ?? "",
+    customers: undefined,
+    products: undefined,
+  }));
   return NextResponse.json(rows);
 }
 
@@ -19,30 +26,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "customer_id, product_id, amount là bắt buộc" }, { status: 400 });
   }
 
-  const db = getDb();
+  const supabase = getSupabaseAdmin();
 
-  const product = db.prepare("SELECT quantity_left FROM products WHERE id=?").get(product_id) as { quantity_left: number } | undefined;
-  if (!product) {
-    return NextResponse.json({ error: "Sản phẩm không tồn tại" }, { status: 404 });
+  const { data: product, error: productError } = await supabase
+    .from("products")
+    .select("quantity_left")
+    .eq("id", product_id)
+    .single();
+
+  if (productError || !product) return NextResponse.json({ error: "Sản phẩm không tồn tại" }, { status: 404 });
+  if (product.quantity_left === 0) return NextResponse.json({ error: "Sản phẩm đã hết hàng" }, { status: 400 });
+
+  const { data, error } = await supabase
+    .from("orders")
+    .insert({ customer_id, product_id, amount, status: status ?? "pending", order_code: order_code ?? "" })
+    .select("id")
+    .single();
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  if (product.quantity_left !== -1) {
+    await supabase
+      .from("products")
+      .update({ quantity_left: product.quantity_left - 1 })
+      .eq("id", product_id);
   }
-  if (product.quantity_left === 0) {
-    return NextResponse.json({ error: "Sản phẩm đã hết hàng" }, { status: 400 });
-  }
 
-  const insertOrder = db.prepare(
-    "INSERT INTO orders (customer_id, product_id, amount, status, order_code) VALUES (?, ?, ?, ?, ?)"
-  );
-  const decreaseQty = db.prepare(
-    "UPDATE products SET quantity_left = quantity_left - 1 WHERE id = ? AND quantity_left > 0"
-  );
-
-  const result = db.transaction(() => {
-    const r = insertOrder.run(customer_id, product_id, amount, status ?? "pending", order_code ?? "");
-    if (product.quantity_left !== -1) {
-      decreaseQty.run(product_id);
-    }
-    return r;
-  })();
-
-  return NextResponse.json({ id: result.lastInsertRowid });
+  return NextResponse.json({ id: data.id });
 }

@@ -1,10 +1,11 @@
-import { getDb } from "@/lib/db";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  const db = getDb();
-  const rows = db.prepare("SELECT * FROM customers ORDER BY id DESC").all();
-  return NextResponse.json(rows);
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase.from("customers").select("*").order("id", { ascending: false });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
 }
 
 export async function POST(req: NextRequest) {
@@ -12,9 +13,12 @@ export async function POST(req: NextRequest) {
   if (!name) {
     return NextResponse.json({ error: "name là bắt buộc" }, { status: 400 });
   }
-  const db = getDb();
-  const result = db
-    .prepare("INSERT INTO customers (name, phone, zalo, email) VALUES (?, ?, ?, ?)")
-    .run(name, phone ?? "", zalo ?? "", email ?? "");
-  return NextResponse.json({ id: result.lastInsertRowid });
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase
+    .from("customers")
+    .insert({ name, phone: phone ?? "", zalo: zalo ?? "", email: email ?? "" })
+    .select("id")
+    .single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ id: data.id });
 }

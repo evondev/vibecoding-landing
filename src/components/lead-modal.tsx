@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { supabase } from "../lib/supabase";
 
 interface Props {
   isOpen: boolean;
@@ -10,15 +9,6 @@ interface Props {
 }
 
 type Step = "form" | "payment" | "confirmed" | "error";
-
-function generateOrderId(): string {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let suffix = "";
-  for (let i = 0; i < 8; i++) {
-    suffix += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return `BRAIN${suffix}`;
-}
 
 export default function LeadModal({ isOpen, onClose }: Props) {
   const firstInputRef = useRef<HTMLInputElement>(null);
@@ -29,11 +19,11 @@ export default function LeadModal({ isOpen, onClose }: Props) {
   const [email, setEmail] = useState("");
   const [step, setStep] = useState<Step>("form");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [orderId, setOrderId] = useState("");
+  const [orderCode, setOrderCode] = useState("");
+  const [amount, setAmount] = useState(99000);
 
   const bankAccount = process.env.NEXT_PUBLIC_SEPAY_BANK_ACCOUNT!;
   const bankName = process.env.NEXT_PUBLIC_SEPAY_BANK_NAME!;
-  const amount = 99000;
 
   useEffect(() => {
     if (isOpen) {
@@ -57,11 +47,11 @@ export default function LeadModal({ isOpen, onClose }: Props) {
 
   // Polling kiểm tra thanh toán
   useEffect(() => {
-    if (step !== "payment" || !orderId) return;
+    if (step !== "payment" || !orderCode) return;
 
     pollRef.current = setInterval(async () => {
       try {
-        const res = await fetch(`/api/sepay/check-payment?orderId=${orderId}`);
+        const res = await fetch(`/api/sepay/check-payment?orderCode=${orderCode}`);
         const data = await res.json();
         if (data.paid) {
           clearInterval(pollRef.current!);
@@ -75,18 +65,17 @@ export default function LeadModal({ isOpen, onClose }: Props) {
     return () => {
       if (pollRef.current) clearInterval(pollRef.current);
     };
-  }, [step, orderId]);
+  }, [step, orderCode]);
 
   function handleClose() {
     if (pollRef.current) clearInterval(pollRef.current);
     onClose();
-    // Reset sau khi đóng
     setTimeout(() => {
       setStep("form");
       setName("");
       setPhone("");
       setEmail("");
-      setOrderId("");
+      setOrderCode("");
     }, 300);
   }
 
@@ -95,30 +84,29 @@ export default function LeadModal({ isOpen, onClose }: Props) {
     if (!name.trim() || !phone.trim() || !email.trim()) return;
 
     setIsSubmitting(true);
-    const newOrderId = generateOrderId();
 
-    const { error } = await supabase.from("leads").insert({
-      name: name.trim(),
-      phone: phone.trim(),
-      email: email.trim(),
-      order_id: newOrderId,
-      payment_status: "pending",
+    const res = await fetch("/api/orders/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name.trim(), phone: phone.trim(), email: email.trim() }),
     });
 
+    const data = await res.json();
     setIsSubmitting(false);
 
-    if (error) {
+    if (!res.ok) {
       setStep("error");
       return;
     }
 
-    setOrderId(newOrderId);
+    setOrderCode(data.order_code);
+    setAmount(data.amount);
     setStep("payment");
   }
 
   if (!isOpen) return null;
 
-  const qrUrl = `https://qr.sepay.vn/img?acc=${bankAccount}&bank=${bankName}&amount=${amount}&des=${orderId}`;
+  const qrUrl = `https://qr.sepay.vn/img?acc=${bankAccount}&bank=${bankName}&amount=${amount}&des=${orderCode}`;
 
   const inputClass =
     "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-shadow";
@@ -223,11 +211,11 @@ export default function LeadModal({ isOpen, onClose }: Props) {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Số tiền</span>
-                <span className="font-bold text-orange-500">99.000đ</span>
+                <span className="font-bold text-orange-500">{amount.toLocaleString("vi-VN")}đ</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-500">Nội dung</span>
-                <span className="font-semibold text-gray-900 font-mono">{orderId}</span>
+                <span className="font-semibold text-gray-900 font-mono">{orderCode}</span>
               </div>
             </div>
 
@@ -240,7 +228,7 @@ export default function LeadModal({ isOpen, onClose }: Props) {
             </div>
 
             <p className="text-xs text-gray-400 mt-3">
-              Nhập đúng nội dung <strong className="font-mono">{orderId}</strong> để hệ thống tự xác nhận.
+              Nhập đúng nội dung <strong className="font-mono">{orderCode}</strong> để hệ thống tự xác nhận.
             </p>
           </div>
         )}

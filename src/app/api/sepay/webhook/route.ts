@@ -1,10 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 interface SepayPayload {
   id: number;
@@ -34,32 +29,30 @@ export async function POST(req: NextRequest) {
 
   const { id, transferType, transferAmount, description } = body;
 
-  // Chỉ xử lý tiền vào đủ số tiền
   if (transferType !== "in" || transferAmount < 99000) {
     return NextResponse.json({ success: true });
   }
 
-  // Tìm order_id dạng BRAIN + chữ số/chữ cái trong nội dung chuyển khoản
   const match = description?.match(/BRAIN[A-Z0-9]+/i);
   if (!match) {
     return NextResponse.json({ success: true });
   }
 
-  const orderId = match[0].toUpperCase();
+  const orderCode = match[0].toUpperCase();
+  const supabase = getSupabaseAdmin();
 
+  // Cập nhật order: status = paid, ghi sepay_transaction_id
   const { error } = await supabase
-    .from("leads")
+    .from("orders")
     .update({
-      payment_status: "paid",
+      status: "paid",
       sepay_transaction_id: String(id),
     })
-    .eq("order_id", orderId)
-    .eq("payment_status", "pending");
+    .eq("order_code", orderCode)
+    .eq("status", "unpaid");
 
   if (error) {
-    console.error("Supabase update error:", error);
-    // Vẫn trả về success để Sepay không retry liên tục
-    return NextResponse.json({ success: true });
+    console.error("Supabase orders update error:", error);
   }
 
   return NextResponse.json({ success: true });

@@ -1,10 +1,11 @@
-import { getDb } from "@/lib/db";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  const db = getDb();
-  const rows = db.prepare("SELECT * FROM products ORDER BY id DESC").all();
-  return NextResponse.json(rows);
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase.from("products").select("*").order("id", { ascending: false });
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
 }
 
 export async function POST(req: NextRequest) {
@@ -12,9 +13,12 @@ export async function POST(req: NextRequest) {
   if (!name || price == null) {
     return NextResponse.json({ error: "name và price là bắt buộc" }, { status: 400 });
   }
-  const db = getDb();
-  const result = db
-    .prepare("INSERT INTO products (name, price, description, quantity_left) VALUES (?, ?, ?, ?)")
-    .run(name, price, description ?? "", quantity_left ?? -1);
-  return NextResponse.json({ id: result.lastInsertRowid });
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase
+    .from("products")
+    .insert({ name, price, description: description ?? "", quantity_left: quantity_left ?? -1 })
+    .select("id")
+    .single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json({ id: data.id });
 }

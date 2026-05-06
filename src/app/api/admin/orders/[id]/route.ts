@@ -1,27 +1,39 @@
-import { getDb } from "@/lib/db";
+import { getSupabaseAdmin } from "@/lib/supabase-server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const { customer_id, product_id, amount, status, order_code } = await req.json();
-  const db = getDb();
-  db.prepare("UPDATE orders SET customer_id=?, product_id=?, amount=?, status=?, order_code=? WHERE id=?")
-    .run(customer_id, product_id, amount, status, order_code, id);
+  const supabase = getSupabaseAdmin();
+  const { error } = await supabase
+    .from("orders")
+    .update({ customer_id, product_id, amount, status, order_code })
+    .eq("id", id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
 
 export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const db = getDb();
+  const supabase = getSupabaseAdmin();
 
-  // Hoàn lại số lượng khi xóa đơn hàng
-  const order = db.prepare("SELECT product_id FROM orders WHERE id=?").get(id) as { product_id: number } | undefined;
+  const { data: order } = await supabase.from("orders").select("product_id").eq("id", id).single();
+
   if (order) {
-    db.transaction(() => {
-      db.prepare("DELETE FROM orders WHERE id=?").run(id);
-      db.prepare("UPDATE products SET quantity_left = quantity_left + 1 WHERE id=? AND quantity_left != -1")
-        .run(order.product_id);
-    })();
+    await supabase.from("orders").delete().eq("id", id);
+
+    const { data: product } = await supabase
+      .from("products")
+      .select("quantity_left")
+      .eq("id", order.product_id)
+      .single();
+
+    if (product && product.quantity_left !== -1) {
+      await supabase
+        .from("products")
+        .update({ quantity_left: product.quantity_left + 1 })
+        .eq("id", order.product_id);
+    }
   }
 
   return NextResponse.json({ ok: true });
