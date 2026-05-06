@@ -21,20 +21,21 @@ export default function FinalCtaSection({ onOpenModal }: Props) {
         </h2>
 
         <p className="text-orange-100 text-lg mb-10 leading-relaxed max-w-xl">
-          Đừng để thêm một ý tưởng quan trọng nào bị mất đi.
-          Hàng nghìn knowledge worker đã dùng AI Brain Tool để nhớ mọi thứ, kết nối mọi ý tưởng và làm việc thông
-          minh hơn mỗi ngày.
+          Đừng để thêm một ý tưởng quan trọng nào bị mất đi. Hàng nghìn
+          knowledge worker đã dùng AI Brain Tool để nhớ mọi thứ, kết nối mọi ý
+          tưởng và làm việc thông minh hơn mỗi ngày.
         </p>
 
         <button
           onClick={onOpenModal}
           className="cursor-pointer bg-white text-orange-600 hover:bg-orange-50 font-bold px-10 py-4 rounded-full transition-colors text-lg shadow-lg shadow-orange-700/30"
         >
-          🧠 Bắt đầu ngay — miễn phí
+          🧠 Sở hữu ngay — 99.000đ
         </button>
 
         <p className="text-orange-200 text-sm mt-6">
-          🛡️ Hoàn tiền 100% trong 14 ngày · Không cần thẻ tín dụng
+          🛡️ Hoàn tiền 100% trong 14 ngày · Thanh toán qua chuyển khoản ngân
+          hàng
         </p>
       </div>
     </section>

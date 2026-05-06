@@ -20,8 +20,9 @@ export default function HeroSection({ onOpenModal }: Props) {
             </h1>
 
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Lưu mọi ghi chú, bài viết, ý tưởng và tài liệu vào một nơi duy nhất.
-              AI tự động phân loại, kết nối và giúp bạn tìm lại bất cứ thứ gì — chỉ trong 1 giây.
+              Lưu mọi ghi chú, bài viết, ý tưởng và tài liệu vào một nơi duy
+              nhất. AI tự động phân loại, kết nối và giúp bạn tìm lại bất cứ thứ
+              gì — chỉ trong 1 giây.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -29,7 +30,7 @@ export default function HeroSection({ onOpenModal }: Props) {
                 onClick={onOpenModal}
                 className="cursor-pointer bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3.5 rounded-full transition-colors whitespace-nowrap text-sm sm:text-base"
               >
-                Bắt đầu miễn phí
+                Sở hữu ngay — 99.000đ
               </button>
               <a
                 href="#how-it-works"
@@ -50,7 +51,9 @@ export default function HeroSection({ onOpenModal }: Props) {
                     <span className="w-6 h-6 bg-orange-500 rounded-md flex items-center justify-center text-white text-xs">
                       🧠
                     </span>
-                    <span className="text-sm font-bold text-gray-900">AI Brain</span>
+                    <span className="text-sm font-bold text-gray-900">
+                      AI Brain
+                    </span>
                   </div>
                   <span className="text-xs text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded-full">
                     ● Đang hoạt động
@@ -59,35 +62,51 @@ export default function HeroSection({ onOpenModal }: Props) {
 
                 <div className="bg-gray-50 rounded-lg px-3 py-2.5 flex items-center gap-2 mb-4">
                   <span className="text-gray-400 text-sm">🔍</span>
-                  <span className="text-gray-400 text-sm">Tìm kiếm bất kỳ kiến thức nào...</span>
+                  <span className="text-gray-400 text-sm">
+                    Tìm kiếm bất kỳ kiến thức nào...
+                  </span>
                 </div>
 
                 <div className="space-y-3">
                   <div className="border border-gray-100 rounded-xl p-3">
                     <div className="flex items-start justify-between mb-1">
-                      <span className="text-xs font-semibold text-gray-900">Chiến lược marketing Q3</span>
-                      <span className="text-xs text-gray-400">2 phút trước</span>
+                      <span className="text-xs font-semibold text-gray-900">
+                        Chiến lược marketing Q3
+                      </span>
+                      <span className="text-xs text-gray-400">
+                        2 phút trước
+                      </span>
                     </div>
                     <p className="text-xs text-gray-500 mb-2 leading-relaxed">
                       Tập trung vào content marketing và SEO dài hạn...
                     </p>
                     <div className="flex gap-1.5">
-                      <span className="text-xs bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full">Marketing</span>
-                      <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full">Q3</span>
+                      <span className="text-xs bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full">
+                        Marketing
+                      </span>
+                      <span className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full">
+                        Q3
+                      </span>
                     </div>
                   </div>
 
                   <div className="border border-gray-100 rounded-xl p-3">
                     <div className="flex items-start justify-between mb-1">
-                      <span className="text-xs font-semibold text-gray-900">Học React Hooks</span>
+                      <span className="text-xs font-semibold text-gray-900">
+                        Học React Hooks
+                      </span>
                       <span className="text-xs text-gray-400">hôm qua</span>
                     </div>
                     <p className="text-xs text-gray-500 mb-2 leading-relaxed">
                       useEffect chạy sau mỗi render, cleanup function...
                     </p>
                     <div className="flex gap-1.5">
-                      <span className="text-xs bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">Dev</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">React</span>
+                      <span className="text-xs bg-purple-50 text-purple-600 px-2 py-0.5 rounded-full">
+                        Dev
+                      </span>
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
+                        React
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -95,15 +114,21 @@ export default function HeroSection({ onOpenModal }: Props) {
                 <div className="mt-3 bg-orange-50 rounded-xl p-3 flex items-center gap-2">
                   <span className="text-orange-500 text-base">🤖</span>
                   <div>
-                    <p className="text-xs font-semibold text-orange-900">AI đang tổ chức...</p>
-                    <p className="text-xs text-orange-600">3 ghi chú mới đã được phân loại tự động</p>
+                    <p className="text-xs font-semibold text-orange-900">
+                      AI đang tổ chức...
+                    </p>
+                    <p className="text-xs text-orange-600">
+                      3 ghi chú mới đã được phân loại tự động
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Floating stat — top right */}
               <div className="absolute -top-5 -right-6 bg-white rounded-2xl shadow-lg border border-gray-100 p-4">
-                <p className="text-xs text-gray-400 mb-0.5">Tiết kiệm mỗi ngày</p>
+                <p className="text-xs text-gray-400 mb-0.5">
+                  Tiết kiệm mỗi ngày
+                </p>
                 <p className="text-2xl font-bold text-gray-900">47 phút</p>
               </div>
 
