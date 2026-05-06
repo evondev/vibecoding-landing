@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
   const { id, transferType, transferAmount, description } = body;
 
-  if (transferType !== "in" || transferAmount < 99000) {
+  if (transferType !== "in" || transferAmount < 2000) { // TODO: đổi lại 99000 sau khi test xong
     return NextResponse.json({ success: true });
   }
 
