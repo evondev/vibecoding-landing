@@ -17,19 +17,25 @@ export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("Authorization");
   const expectedToken = `Apikey ${process.env.SEPAY_WEBHOOK_TOKEN}`;
   if (authHeader !== expectedToken) {
-    return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
+    return NextResponse.json(
+      { success: false, message: "Unauthorized" },
+      { status: 401 },
+    );
   }
 
   let body: SepayPayload;
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ success: false, message: "Invalid JSON" }, { status: 400 });
+    return NextResponse.json(
+      { success: false, message: "Invalid JSON" },
+      { status: 400 },
+    );
   }
 
   const { id, transferType, transferAmount, description } = body;
 
-  if (transferType !== "in" || transferAmount < 2000) { // TODO: đổi lại 99000 sau khi test xong
+  if (transferType !== "in" || transferAmount < 99000) {
     return NextResponse.json({ success: true });
   }
 

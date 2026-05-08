@@ -17,6 +17,7 @@ export default function LeadModal({ isOpen, onClose }: Props) {
   const [email, setEmail] = useState("");
   const [step, setStep] = useState<Step>("form");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{ phone?: string; email?: string }>({});
 
   useEffect(() => {
     if (isOpen) {
@@ -45,12 +46,34 @@ export default function LeadModal({ isOpen, onClose }: Props) {
       setName("");
       setPhone("");
       setEmail("");
+      setErrors({});
     }, 300);
+  }
+
+  function validate() {
+    const newErrors: { phone?: string; email?: string } = {};
+    if (phone.trim()) {
+      const phoneDigits = phone.replace(/\s/g, "");
+      if (!/^(0[3-9]\d{8})$/.test(phoneDigits)) {
+        newErrors.phone = "Số điện thoại không hợp lệ (VD: 0901234567)";
+      }
+    }
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      newErrors.email = "Email không đúng định dạng";
+    }
+    return newErrors;
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
 
     setIsSubmitting(true);
 
@@ -72,8 +95,12 @@ export default function LeadModal({ isOpen, onClose }: Props) {
 
   if (!isOpen) return null;
 
-  const inputClass =
-    "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-shadow";
+  const inputClass = (hasError?: boolean) =>
+    `w-full border rounded-xl px-4 py-3 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:border-transparent transition-shadow ${
+      hasError
+        ? "border-red-400 focus:ring-red-400"
+        : "border-gray-200 focus:ring-orange-500"
+    }`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -109,7 +136,7 @@ export default function LeadModal({ isOpen, onClose }: Props) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Nguyễn Văn A"
-                  className={inputClass}
+                  className={inputClass()}
                   required
                 />
               </div>
@@ -121,26 +148,34 @@ export default function LeadModal({ isOpen, onClose }: Props) {
                 <input
                   type="tel"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
+                  }}
                   placeholder="0901 234 567"
-                  className={inputClass}
+                  className={inputClass(!!errors.phone)}
                 />
+                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-700 block mb-1.5">Email</label>
                 <input
-                  type="email"
+                  type="text"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                  }}
                   placeholder="email@example.com"
-                  className={inputClass}
+                  className={inputClass(!!errors.email)}
                   required
                 />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <button
                 type="submit"
-                disabled={!name.trim() || !email.trim() || isSubmitting}
+                disabled={!name.trim() || !email.trim() || isSubmitting || Object.keys(errors).length > 0}
                 className="cursor-pointer w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-colors mt-2"
               >
                 {isSubmitting ? "Đang xử lý..." : "Đăng ký danh sách chờ →"}

@@ -4,24 +4,24 @@ const faqs = [
     a: "Notion và Obsidian là công cụ viết và tổ chức — bạn phải tự tạo cấu trúc, tự gán tag, tự tìm kiếm. AI Brain Tool ngược lại: AI lo tất cả phần tổ chức, còn bạn chỉ cần capture và hỏi. Đặc biệt là tính năng tìm kiếm bằng ngôn ngữ tự nhiên — Notion và Obsidian không có điều này.",
   },
   {
-    q: "Tôi có thể import dữ liệu từ Notion / Obsidian không?",
-    a: "Có. AI Brain Tool hỗ trợ import trực tiếp từ Notion (export JSON), Obsidian (vault folder), Evernote và bất kỳ file Markdown nào. Dữ liệu cũ của bạn sẽ được AI phân loại và kết nối tự động sau khi import.",
+    q: "Tôi cần chuẩn bị gì để bắt đầu?",
+    a: "Bạn cần một OpenAI API key (tạo tại platform.openai.com, có gói miễn phí để thử). Key được lưu trên trình duyệt của bạn — chúng tôi không lưu vào server. Bạn chỉ trả tiền cho OpenAI theo lượng bạn thực sự dùng, thường rất nhỏ (vài nghìn đồng mỗi tháng với mức dùng bình thường).",
+  },
+  {
+    q: "Tôi có thể lưu những loại nội dung nào?",
+    a: "Ghi chú văn bản, link URL, đoạn trích bài viết, ý tưởng nhanh. AI sẽ tự động tóm tắt và phân loại sau khi bạn lưu. Tính năng import từ Notion/Obsidian đang trong roadmap và sẽ được cập nhật sau.",
   },
   {
     q: "Dữ liệu của tôi có an toàn không?",
-    a: "Có. Toàn bộ dữ liệu được mã hóa end-to-end — ngay cả chúng tôi cũng không đọc được ghi chú của bạn. Bạn có thể export toàn bộ và xóa tài khoản bất cứ lúc nào.",
+    a: "Có. Dữ liệu của bạn được lưu trữ an toàn trên server — bạn có thể export toàn bộ và xóa tài khoản bất cứ lúc nào. API key OpenAI của bạn chỉ lưu trên trình duyệt, không bao giờ gửi đến server của chúng tôi.",
   },
   {
-    q: "Lifetime Deal nghĩa là gì? Có bị tính thêm phí sau này không?",
-    a: "Thanh toán một lần duy nhất, dùng mãi mãi — không có phí tháng, không có phí năm, không bao giờ bị tính thêm. Tất cả tính năng mới ra mắt trong tương lai cũng miễn phí cho Founding Member.",
-  },
-  {
-    q: "App có chạy được offline không?",
-    a: "Có. Bạn có thể xem và tạo ghi chú offline. Khi có kết nối mạng trở lại, dữ liệu tự đồng bộ và AI xử lý các ghi chú mới.",
+    q: "Thanh toán một lần có nghĩa là gì?",
+    a: "Thanh toán 99.000đ một lần duy nhất để truy cập AI Brain Tool lâu dài — không có phí tháng, không có phí năm cho nền tảng. Chi phí AI duy nhất là token bạn dùng với API key OpenAI của bạn, và bạn hoàn toàn kiểm soát điều đó.",
   },
   {
     q: "Tôi không phải dân kỹ thuật, có dùng được không?",
-    a: "Hoàn toàn được. Giao diện được thiết kế đơn giản nhất có thể — nếu bạn biết dùng Google hay nhắn tin Zalo, bạn sẽ dùng được AI Brain Tool trong vòng 5 phút. Không cần cài đặt gì phức tạp.",
+    a: "Hoàn toàn được. Giao diện được thiết kế đơn giản nhất có thể — nếu bạn biết dùng Google hay nhắn tin Zalo, bạn sẽ dùng được AI Brain Tool trong vòng 5 phút. Phần thiết lập API key cũng có hướng dẫn từng bước chi tiết.",
   },
 ];
 

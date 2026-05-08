@@ -21,7 +21,7 @@ export default function FinalCtaSection({ onOpenModal }: Props) {
         </h2>
 
         <p className="text-orange-100 text-lg mb-10 leading-relaxed max-w-xl">
-          Đừng để thêm một ý tưởng quan trọng nào bị mất đi. Hàng nghìn
+          Đừng để thêm một ý tưởng quan trọng nào bị mất đi. Hàng trăm
           knowledge worker đã dùng AI Brain Tool để nhớ mọi thứ, kết nối mọi ý
           tưởng và làm việc thông minh hơn mỗi ngày.
         </p>

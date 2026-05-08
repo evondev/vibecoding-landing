@@ -1,5 +1,5 @@
-const PAYMENT_URL = "https://vibecodeeasy.com/";
-const APP_URL = "https://app.vibecodeeasy.com/";
+const PAYMENT_URL = "https://vibecodeeasy.com/thanh-toan";
+const APP_URL = "https://vibecodeeasy.com/docs";
 
 const wrap: React.CSSProperties = {
   fontFamily: "Arial, sans-serif",
@@ -87,8 +87,7 @@ export function Email2Nurture({ name }: BaseProps) {
 export function Email3Sales({ name }: BaseProps) {
   return (
     <div style={wrap}>
-      <p>
-        Chào {name},</p>
+      <p>Chào {name},</p>
       <p>
         Hôm nay mình chính thức mở AI Brain Tool cho bạn trong danh sách chờ.
       </p>
@@ -139,17 +138,48 @@ export function EmailOrderConfirmation({
         width="100%"
         cellPadding={0}
         cellSpacing={0}
-        style={{ background: "#fff7ed", borderRadius: 12, margin: "20px 0", fontSize: 14 }}
+        style={{
+          background: "#fff7ed",
+          borderRadius: 12,
+          margin: "20px 0",
+          fontSize: 14,
+        }}
       >
         <tbody>
           {[
-            { label: "Sản phẩm", value: productName, bold: true, color: "#111827" },
-            { label: "Số tiền", value: fmt(amount), bold: true, color: "#ea580c" },
-            { label: "Mã đơn hàng", value: orderCode, bold: false, color: "#374151" },
+            {
+              label: "Sản phẩm",
+              value: productName,
+              bold: true,
+              color: "#111827",
+            },
+            {
+              label: "Số tiền",
+              value: fmt(amount),
+              bold: true,
+              color: "#ea580c",
+            },
+            {
+              label: "Mã đơn hàng",
+              value: orderCode,
+              bold: false,
+              color: "#374151",
+            },
           ].map((row, i) => (
             <tr key={i}>
-              <td style={{ padding: "10px 20px", color: "#6b7280", width: "40%" }}>{row.label}</td>
-              <td style={{ padding: "10px 20px", color: row.color, fontWeight: row.bold ? 700 : 400, textAlign: "right" }}>
+              <td
+                style={{ padding: "10px 20px", color: "#6b7280", width: "40%" }}
+              >
+                {row.label}
+              </td>
+              <td
+                style={{
+                  padding: "10px 20px",
+                  color: row.color,
+                  fontWeight: row.bold ? 700 : 400,
+                  textAlign: "right",
+                }}
+              >
                 {row.value}
               </td>
             </tr>

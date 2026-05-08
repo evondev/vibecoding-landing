@@ -30,11 +30,11 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                 Lưu mọi thứ <span className="text-orange-500">ngay lập tức</span>
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Dùng extension Chrome, app mobile hoặc chỉ cần forward email. Dán link, chụp ảnh, ghi âm hay gõ trực
-                tiếp — mọi định dạng đều được nhận.
+                Dùng extension Chrome hoặc giao diện web. Dán link, ghi chú, đoạn văn bản — lưu ngay lập tức, AI xử lý
+                phần còn lại.
               </p>
               <ul className="space-y-2.5 mb-8">
-                {["Extension Chrome 1 click", "App iOS & Android", "Email-to-brain forwarding", "Paste link, text, file, ảnh"].map(
+                {["Extension Chrome 1 click", "Paste link, text, file, ảnh", "Dùng API key OpenAI của bạn — bạn kiểm soát chi phí"].map(
                   (item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
                       <span className="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs shrink-0">
@@ -73,9 +73,9 @@ export default function FeaturesSection({ onOpenModal }: Props) {
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { icon: "📱", label: "Mobile App" },
-                  { icon: "📧", label: "Email Forward" },
                   { icon: "🔗", label: "Paste Link" },
+                  { icon: "🔑", label: "API Key" },
+                  { icon: "🌐", label: "Web App" },
                 ].map((src) => (
                   <div
                     key={src.label}

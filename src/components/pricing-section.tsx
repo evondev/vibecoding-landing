@@ -1,12 +1,13 @@
 const features = [
-  "Lưu trữ không giới hạn ghi chú, link, file",
+  "Lưu ghi chú, link, đoạn văn bản lên cloud",
   "AI tìm kiếm thông minh — kết quả trong 1 giây",
   "Tự động phân loại & tóm tắt bằng AI",
   "Knowledge Graph — trực quan hóa kết nối kiến thức",
-  "Extension Chrome + App mobile (iOS & Android)",
-  "Đồng bộ tất cả thiết bị theo thời gian thực",
+  "Extension Chrome",
+  "Truy cập trên web, mọi thiết bị có trình duyệt",
   "Export toàn bộ dữ liệu (Markdown, JSON, PDF)",
-  "Tất cả tính năng mới trong tương lai — miễn phí mãi",
+  "Dùng API key OpenAI của bạn — chi phí AI do bạn kiểm soát",
+  "Cập nhật tính năng định kỳ",
 ];
 
 interface Props {
@@ -59,7 +60,7 @@ export default function PricingSection({ onOpenModal }: Props) {
               <div className="text-center mb-8">
                 <p className="text-gray-400 text-sm line-through mb-1">1.990.000đ</p>
                 <p className="text-5xl font-bold text-gray-900 mb-2">99.000đ</p>
-                <p className="text-gray-500 text-sm">Một lần · Trọn đời · Không tốn thêm xu nào</p>
+                <p className="text-gray-500 text-sm">Một lần · Dùng lâu dài · Chi phí AI do bạn kiểm soát</p>
               </div>
 
               <ul className="space-y-3 mb-8">

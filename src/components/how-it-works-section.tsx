@@ -4,7 +4,7 @@ const steps = [
     icon: "📥",
     label: "Capture",
     title: "Lưu mọi thứ ngay lập tức",
-    desc: "Dùng extension Chrome, app mobile hoặc forward email. Dán link, chụp ảnh, ghi âm hay gõ trực tiếp — mọi định dạng đều được nhận.",
+    desc: "Dùng extension Chrome hoặc giao diện web. Dán link, ghi chú, đoạn văn — AI sẽ xử lý phần còn lại.",
     visual: (
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
         <div className="flex items-center gap-2 mb-3">

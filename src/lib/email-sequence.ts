@@ -45,7 +45,7 @@ export async function sendWaitlistEmailSequence(email: string, name: string) {
   ];
 
   for (let i = 0; i < jobs.length; i++) {
-    if (i > 0) await new Promise((r) => setTimeout(r, 1000));
+    if (i > 0) await new Promise((r) => setTimeout(r, 600));
     const { subject, html, extra } = jobs[i];
     const result = await resend.emails.send({
       from: FROM,
