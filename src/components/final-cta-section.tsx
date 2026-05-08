@@ -30,7 +30,7 @@ export default function FinalCtaSection({ onOpenModal }: Props) {
           onClick={onOpenModal}
           className="cursor-pointer bg-white text-orange-600 hover:bg-orange-50 font-bold px-10 py-4 rounded-full transition-colors text-lg shadow-lg shadow-orange-700/30"
         >
-          🧠 Sở hữu ngay — 99.000đ
+          Đăng ký sớm
         </button>
 
         <p className="text-orange-200 text-sm mt-6">

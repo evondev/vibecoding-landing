@@ -1,4 +1,5 @@
 import { getSupabaseAdmin } from "@/lib/supabase-server";
+import { sendWaitlistEmailSequence } from "@/lib/email-sequence";
 import { NextRequest, NextResponse } from "next/server";
 
 function generateOrderCode(): string {
@@ -38,6 +39,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Không thể tạo khách hàng" }, { status: 500 });
     }
     customerId = newCustomer.id;
+    sendWaitlistEmailSequence(email.trim(), name.trim()).catch(console.error);
   }
 
   // Lấy sản phẩm đầu tiên

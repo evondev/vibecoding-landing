@@ -77,7 +77,7 @@ export default function PricingSection({ onOpenModal }: Props) {
                 onClick={onOpenModal}
                 className="cursor-pointer w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-2xl transition-colors"
               >
-                🧠 Sở hữu AI Brain Tool ngay
+                Đăng ký sớm
               </button>
 
               <p className="text-center text-sm text-gray-500 mt-4">

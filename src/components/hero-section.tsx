@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenModal }: Props) {
                 onClick={onOpenModal}
                 className="cursor-pointer bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3.5 rounded-full transition-colors whitespace-nowrap text-sm sm:text-base"
               >
-                Sở hữu ngay — 99.000đ
+                Đăng ký sớm
               </button>
               <a
                 href="#how-it-works"

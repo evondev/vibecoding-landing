@@ -1,4 +1,5 @@
 import { getSupabaseAdmin } from "@/lib/supabase-server";
+import { sendOrderConfirmationEmail } from "@/lib/email-sequence";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
@@ -50,6 +51,22 @@ export async function POST(req: NextRequest) {
       .from("products")
       .update({ quantity_left: product.quantity_left - 1 })
       .eq("id", product_id);
+  }
+
+  if (status === "paid") {
+    const [{ data: customer }, { data: prod }] = await Promise.all([
+      supabase.from("customers").select("name, email").eq("id", customer_id).single(),
+      supabase.from("products").select("name").eq("id", product_id).single(),
+    ]);
+    if (customer?.email) {
+      sendOrderConfirmationEmail({
+        email: customer.email,
+        name: customer.name,
+        productName: prod?.name ?? "AI Brain Tool",
+        amount,
+        orderCode: order_code ?? "",
+      }).catch(console.error);
+    }
   }
 
   return NextResponse.json({ id: data.id });

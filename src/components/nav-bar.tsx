@@ -41,7 +41,7 @@ export default function NavBar({ onOpenModal }: Props) {
             onClick={onOpenModal}
             className="cursor-pointer bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
           >
-            Mua ngay — 99K
+            Đăng ký sớm
           </button>
         </div>
       </div>

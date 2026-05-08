@@ -49,7 +49,7 @@ export default function FeaturesSection({ onOpenModal }: Props) {
                 onClick={onOpenModal}
                 className="cursor-pointer text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors"
               >
-                Sở hữu ngay →
+                Đăng ký sớm →
               </button>
             </div>
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">

@@ -179,7 +179,7 @@ export default function ChatWidget({ onOpenModal }: Props) {
       const remaining = ALL_QUICK_REPLIES.filter((q) => !newAnswered.has(q.key));
       if (newAnswered.size >= 2) {
         const next: QuickReply[] = [
-          { label: "🧠 Mua ngay — 99.000đ", key: "buy" },
+          { label: "Đăng ký sớm", key: "buy" },
           { label: "Để lại thông tin, mình chưa vội", key: "later" },
         ];
         if (remaining.length > 0) next.push({ label: "Hỏi thêm câu khác", key: "more" });
@@ -273,7 +273,7 @@ export default function ChatWidget({ onOpenModal }: Props) {
                       onClick={() => handleCta()}
                       className="cursor-pointer mt-1 bg-orange-500 hover:bg-orange-600 active:scale-95 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all"
                     >
-                      🧠 Sở hữu AI Brain Tool — 99.000đ
+                      Đăng ký sớm
                     </button>
                   )}
                   {msg.cta === "form" && (
